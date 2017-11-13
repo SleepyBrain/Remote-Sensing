@@ -11,9 +11,15 @@ oneClassRes = [];
 
 for class = 1:14
     resultPCA = [];
-    load AVIRISPCA_train.txt;
-    train = AVIRISPCA_train;
-    clear AVIRISPCA_train;
+    
+    %     load AVIRISPCA_train.txt;
+    %     train = AVIRISPCA_train;
+    %     clear AVIRISPCA_train;
+    
+    load NewTrain.txt;
+    train = NewTrain;
+    clear NewTrain;
+    
     label_train = train(:,1);
     train(:,1:2)=[];
     
@@ -35,9 +41,14 @@ for class = 1:14
     end
     train = train(:,resS(class,:));
     
-    load AVIRISPCA_test.txt;
-    test = AVIRISPCA_test;
-    clear AVIRISPCA_test;
+    %     load AVIRISPCA_test.txt;
+    %     test = AVIRISPCA_test;
+    %     clear AVIRISPCA_test;
+
+    load NewTest.txt;
+    test = NewTest;
+    clear NewTest;
+    
     label_test = test(:,1);
     test(:,1:2)=[];
     
@@ -88,22 +99,5 @@ for class = 1:14
         resultPCA = [resultPCA accuracy(1)];
     end
     
-%     oneClassC = [oneClassC bestc];
-%     oneClassG = [oneClassG bestg];
     oneClassRes = [oneClassRes; resultPCA];
 end
-
-% for i =  1:14
-%     plot(oneClassRes(i,:));
-%     hold on;
-% end
-% hold off
-
-% for i =  1:14
-%     figure();
-%     plot(resultRBF(i,:));
-%     hold on;
-%     plot(oneClassRes(i,:));
-%     hold off;
-% end
-% save('oneClassRes14Full.mat','oneClassRes');
