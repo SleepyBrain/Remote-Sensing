@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% document.tex                                                               %%
+%% A LaTeX template for writing B.Sc. Thesis Report at RUET                   %%
+%% Copyright 2016 Md. Minhazul Haque <minhaz@linux.com>                       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{IEEEtran}
+\documentclass[12pt,a4paper,final]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{subfiles}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{appendix}
+\usepackage{cite}
+\usepackage{tabularx}
+% setup pdf title, author name etc.
+\hypersetup
+{
+    pdfauthor={Md. Tanvir Ahmed},
+    pdfsubject={Thesis book},
+    pdftitle={Target class oriented feature selection for effective hyperspectral image classification},
+    pdfkeywords={Hyperspectral image, Feature extraction, Feature selection, Principal components analysis, Mutual information}
+}
+
+\lstset{basicstyle=\ttfamily,breaklines=true}
+
+% add references to table of contents
+\usepackage[nottoc]{tocbibind}
+
+% rename bibliography title to references
+\renewcommand\bibname{References}
+
+% line height
+\renewcommand{\baselinestretch}{1.5}
+
+% my custom variables
+\newcommand{\thesistitle}{Target class oriented feature selection for effective hyperspectral image classification}
+\newcommand{\thesissupervisor}{Dr. Md. Ali Hossain}
+\newcommand{\thesissupervisordesignation}{Assistant Professor}
+
+\newcommand{\authorname}{Md. Tanvir Ahmed}
+\newcommand{\authorroll}{123086}
+
+\newcommand{\dept}{DEPARTMENT OF COMPUTER SCIENCE \& ENGINEERING}
+\newcommand{\deptT}{Department of Computer Science \& Engineering}
+\newcommand{\depthead}{Dr. Md. Rabiul Islam}
+\newcommand{\ruet}{Rajshahi University of Engineering \& Technology}
+
+% put some extra margin at the left of the page
+% \usepackage[left=4.00cm,top=2.50cm,right=2.50cm,bottom=2.50cm]{geometry}
+\usepackage[left=1.0in,top=2.50cm,right=1.0in,bottom=1.0in]{geometry}
+
+\begin{document}
+% skips page number on title page
+\pagenumbering{gobble}
+\subfile{chapters/i_title.tex}
+
+% adds page number in i, ii, iii, iv ... format
+\pagenumbering{roman}
+\subfile{chapters/ii_acknowledgement.tex}
+\subfile{chapters/iii_certificate.tex}
+\subfile{chapters/iv_abstract.tex}
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage
+
+% adds page number in 1, 2, 3, 4 ... format
+\pagenumbering{arabic}
+\subfile{chapters/1_introduction.tex}
+\subfile{chapters/2_background.tex}
+
+% include references
+\bibliography{bibliography}
+\bibliographystyle{unsrt}
+%\bibliographystyle{unsrtnat}
+%\usepackage[numbers,sort&compress]{natbib}
+
+\end{document}
