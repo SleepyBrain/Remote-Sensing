@@ -9,9 +9,6 @@ end
 tmpMI = nmi;
 [nmi,id] = sort(nmi,'descend');
 
-% Y = X;
-% X = X(:,id);
-
 S = id(1);
 
 flag = [];
