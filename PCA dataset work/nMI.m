@@ -7,9 +7,6 @@ load AVIRISPCA_train.txt;
 X = AVIRISPCA_train;
 clear AVIRISPCA_train;
 
-% load AVIRIS_train.txt;
-% X = AVIRIS_train;
-% clear AVIRIS_train;
 C = X(:,1);
 X(:,1:2) = [];
 
@@ -22,12 +19,7 @@ end
 tmpMI = nmi; 
 [nmi,id] = sort(nmi,'descend');
 
-% Y = X;
-% X = X(:,id);
-
-
 S = id(1);
-
 
 flag = [];
 for i = 1:m
