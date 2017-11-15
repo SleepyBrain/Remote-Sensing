@@ -3,13 +3,13 @@
 % clc;
 addpath('F:\CSE 700&800\Data set\10_4231_R7RX991C\aviris_hyperspectral_data');
 
-% load AVIRISPCA_train.txt;
-% X = AVIRISPCA_train;
-% clear AVIRISPCA_train;
+load AVIRISPCA_train.txt;
+X = AVIRISPCA_train;
+clear AVIRISPCA_train;
 
-load NewTrain.txt;
-X = NewTrain;
-clear NewTrain;
+% load NewTrain.txt;
+% X = NewTrain;
+% clear NewTrain;
 
 C = X(:,1);
 X(:,1:2) = [];

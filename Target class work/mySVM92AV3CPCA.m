@@ -12,13 +12,13 @@ oneClassRes = [];
 for class = 1:14
     resultPCA = [];
     
-    %     load AVIRISPCA_train.txt;
-    %     train = AVIRISPCA_train;
-    %     clear AVIRISPCA_train;
+    load AVIRISPCA_train.txt;
+    train = AVIRISPCA_train;
+    clear AVIRISPCA_train;
     
-    load NewTrain.txt;
-    train = NewTrain;
-    clear NewTrain;
+    %     load NewTrain.txt;
+    %     train = NewTrain;
+    %     clear NewTrain;
     
     label_train = train(:,1);
     train(:,1:2)=[];
@@ -41,13 +41,13 @@ for class = 1:14
     end
     train = train(:,resS(class,:));
     
-    %     load AVIRISPCA_test.txt;
-    %     test = AVIRISPCA_test;
-    %     clear AVIRISPCA_test;
-
-    load NewTest.txt;
-    test = NewTest;
-    clear NewTest;
+    load AVIRISPCA_test.txt;
+    test = AVIRISPCA_test;
+    clear AVIRISPCA_test;
+    
+    %     load NewTest.txt;
+    %     test = NewTest;
+    %     clear NewTest;
     
     label_test = test(:,1);
     test(:,1:2)=[];

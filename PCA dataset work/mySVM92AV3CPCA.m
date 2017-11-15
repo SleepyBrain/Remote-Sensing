@@ -4,26 +4,26 @@
 addpath('F:\CSE 700&800\Data set\10_4231_R7RX991C\aviris_hyperspectral_data');
 resultPCA = [];
 
-% load AVIRISPCA_train.txt;
-% train = AVIRISPCA_train;
-% clear AVIRISPCA_train;
+load AVIRISPCA_train.txt;
+train = AVIRISPCA_train;
+clear AVIRISPCA_train;
 
-load NewTrain.txt;
-train = NewTrain;
-clear NewTrain;
+% load NewTrain.txt;
+% train = NewTrain;
+% clear NewTrain;
 
 label_train = train(:,1);
 train(:,1:2)=[];
 % train = train(:,1:220);
 train = train(:,id);
 
-% load AVIRISPCA_test.txt;
-% test = AVIRISPCA_test;
-% clear AVIRISPCA_test;
+load AVIRISPCA_test.txt;
+test = AVIRISPCA_test;
+clear AVIRISPCA_test;
 
-load NewTest.txt;
-test = NewTest;
-clear NewTest;
+% load NewTest.txt;
+% test = NewTest;
+% clear NewTest;
 
 label_test = test(:,1);
 test(:,1:2)=[];
@@ -38,8 +38,8 @@ end
 addpath('F:\CSE 700&800\Data set\libsvm-3.22\matlab');
 
 % bestc=10; bestg = 0.83;
-% bestc=10; bestg = 0.28;
-bestc=10; bestg = 1.53;
+bestc=10; bestg = 0.28;
+% bestc=10; bestg = 1.53;
 
 %     bestcv=0; bestc=0; bestg=0;
 %     for c = 1:10
