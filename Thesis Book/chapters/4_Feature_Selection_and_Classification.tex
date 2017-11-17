@@ -2,9 +2,26 @@
 \begin{document}
 
 \chapter{Feature Selection and Classification}
+\noindent Feature mining generally refers to transform a high dimensional correlated dataset into a low dimensional uncorrelated data space. It can be done by following two steps:
+\begin{itemize}
+	\item Feature extraction
+	\item Feature selection
+\end{itemize}
 
 \section{Feature Extraction Based on Principal Component Analysis}
-
+\noindent Principal component analysis is one of the most popular unsupervised feature extraction technique.The principal component analysis is based on the fact that neighboring bands of hyperspectral images are highly correlated and often convey almost the same information about the object. The PCA employs the statistic properties of
+hyperspectral bands to examine band dependency or correlation. This transformation
+is based on the mathematical principle known as eigenvalue decomposition of the
+covariance matrix of the hyperspectral image bands to be analyzed. The new transformed uncorrelated variables called principal components (PCs). First few variable contains most of the variation of the original data. If a hyperspectral image form M = i * j * k dataset where i is number of row, j is number of columns and k is the number of bands of the dataset. Then after applying PCA to our dataset, we can use a small portion of k and still find almost all variations of our data. if X1,X2....Xn is the dataset. Then for calculating PCA we first subtract mean form the dataset. The mean is calculated as
+\begin{equation}
+\overline{X} = \dfrac{\sum_{i=1}^{n} X_i}{n}
+\label{eq:Mean}
+\end{equation}
+The covariance matrix between any two dimension can be calculated as:
+\begin{equation}
+COV(X,Y) = \dfrac{\sum_{i=1}^{n}(X_i - \overline{X})(Y_i - \overline{Y})}{n-1}
+\end{equation}
+Covariance matrix is a square matrix. Eigenvalue and eigenvector is calculated from covariance matrix. Eigenvector that has the highest eigenvalue is the first principal component. Arrangement of eigenvectors according to descending order of eigenvalues creates a matrix of new set of data whose first few column can be chosen for further use. 
 \section{Feature Selection Based on Normalized Mutual Information}
 
 \subsection{Original Dataset Plus nMI Approach}
