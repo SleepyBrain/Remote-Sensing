@@ -38,9 +38,29 @@ categories and then examine their spectral separability; in the unsupervised app
 computer determines spectrally separable class, and then define their information value.
 (PCI, 1997; Lillesand and Kiefer, 1994)
 
-
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=6.0cm]{imgs/Unsupervised.png}
+	\end{center}
+	\caption{Unsupervised Classification}
+	\label{fig: Unsupervised Classification}
+\end{figure}
 Unsupervised classification is becoming increasingly popular in agencies involved in
 long term GIS database maintenance. The reason is that there are now systems that use
 clustering procedures that are extremely fast and require little in the nature of operational parameters. Thus it is becoming possible to train GIS analysis with only a general
 familiarity with remote sensing to undertake classifications that meet typical map accuracy standards. With suitable ground truth accuracy assessment procedures, this tool can provide a remarkably rapid means of producing quality land cover data on a continuing basis.
+\subsection{Supervised Classification}
+\noindent The user selects representative samples for each land cover class in the digital image.
+These sample land cover classes are called "training sites". The image classification
+software uses the training sites to identify the land cover classes in the entire image.
+The classification of land cover is based on the spectral signature defined in the training set. The digital image classification software determines each class on what it resembles
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=6.0cm]{imgs/Supervised.png}
+	\end{center}
+	\caption{Supervised Classificationn}
+	\label{fig: Supervised Classification}
+\end{figure}
+most in the training set. The common supervised classification algorithms are maximum
+likelihood and minimum-distance classification.
 \end{document}
