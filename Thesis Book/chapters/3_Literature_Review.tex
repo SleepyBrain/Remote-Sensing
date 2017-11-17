@@ -16,5 +16,31 @@
 \section{Feature Mining for Hyperspectral Image}
 
 \section{Classification Techniques}
+\noindent Digital image classification techniques group pixels to represent land cover features. Land cover could be forest, urban, agricultural and other types of features. There are two main image classification techniques.
+\begin{itemize}
+	\item Unsupervised Classification
+	\item Supervised Classification
+\end{itemize}
+\subsection{Unsupervised Classification}
+\noindent Pixels are grouped based on the reflectance properties of pixels. These groupings are
+called "clusters". The user identifies the number of clusters to generate and which bands
+to use. With this information, the image classification software generates clusters. There
+are different image clustering algorithms such as K-means and ISODATA.
+Unsupervised classification is a method which examines a large number of unknown pixels and divides into a number of classed based on natural groupings present in the image values. unlike supervised classification, unsupervised classification does not require
+analyst-specified training data. The basic premise is that values within a given cover
+type should be close together in the measurement space (i.e. have similar gray levels),
+whereas data in different classes should be comparatively well separated (i.e. have very
+different gray levels) (PCI, 1997; Lillesand and Kiefer, 1994; Eastman, 1995 )
+The classes that result from unsupervised classification are spectral classed which based on natural groupings of the image values, the identity of the spectral class will not be initially known, must compare classified data to some from of reference data (such as larger
+scale imagery, maps, or site visits) to determine the identity and informational values
+of the spectral classes. Thus, in the supervised approach, to define useful information
+categories and then examine their spectral separability; in the unsupervised approach the
+computer determines spectrally separable class, and then define their information value.
+(PCI, 1997; Lillesand and Kiefer, 1994)
 
+
+Unsupervised classification is becoming increasingly popular in agencies involved in
+long term GIS database maintenance. The reason is that there are now systems that use
+clustering procedures that are extremely fast and require little in the nature of operational parameters. Thus it is becoming possible to train GIS analysis with only a general
+familiarity with remote sensing to undertake classifications that meet typical map accuracy standards. With suitable ground truth accuracy assessment procedures, this tool can provide a remarkably rapid means of producing quality land cover data on a continuing basis.
 \end{document}
