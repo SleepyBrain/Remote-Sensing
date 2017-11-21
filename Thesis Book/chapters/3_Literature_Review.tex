@@ -9,15 +9,157 @@ The amount of high-dimensional data that exists and is publically available on t
 comprehensibility. Irrelevant features are those that provide no useful information, and
 redundant features provide no more information than the currently selected features.
 \section{Feature Mining}
+Hyperspectral sensors record the reflectance from the Earth's surface over the full range of solar wavelengths with high spectral resolution. The resulting high-dimensional data contain rich information for a wide range of applications. However, for a specific application, not all the measurements are important and useful. The original feature space may not be the most effective space for representing the data. Feature mining, which includes feature generation, feature selection (FS), and feature extraction (FE), is a critical task for hyperspectral data classification. Significant research effort has focused on this issue since hyperspectral data became available in the late 1980s. The feature mining techniques which have been developed include supervised and unsupervised, parametric and nonparametric, linear and nonlinear methods, which all seek to identify the informative subspace.In the process of feature mining, irrelevant and redundant features or noise in the data
+may be hinder in many situations, because they are not relevant and important with respect to the class concept such as microarray data analysis . When the number of samples
+is much less than the features, then machine learning gets particularly difficult, because
+the search space will be sparsely populated. Therefore, the model will not able to differentiate accurately between noise and relevant data . There are two major approaches to
+feature selection. The first is Individual Evaluation, and the second is Subset Evaluation.
+Ranking of the features is known as Individual Evaluation . In Individual Evaluation,
+the weight of an individual feature is assigned according to its degree of relevance. In
+Subset Evaluation, candidate feature subsets are constructed using search strategy. The
+general procedure for feature selection has four key steps as shown in Figure 3.1
+\begin{itemize}
+	\item Subset Generation
+	\item Evaluation of Subset
+	\item Stopping Criteria
+	\item Result Validation
+\end{itemize}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=5.0cm]{imgs/Feature_mining.png}
+	\end{center}
+	\caption{Four key steps for the feature selection process}
+	\label{fig:Four key steps for the feature selection process}
+\end{figure}
+Subset generation is a heuristic search in which each state specifies a candidate subset
+for evaluation in the search space. Two basic issues determine the nature of the subset
+generation process. First, successor generation decides the search starting point, which
+influences the search direction. To decide the search starting points at each state, forward,
+backward, compound, weighting, and random methods may be considered . Second,
+search organization is responsible for the feature selection process with a specific strategy,
+such as sequential search, exponential search or random search . A newly generated subset
+must be evaluated by a certain evaluation criteria. Therefore, many evaluation criteria
+have been proposed in the literature to determine the goodness of the candidate subset
+of the features. Base on their dependency on mining algorithms, evaluation criteria can
+be categorized into groups: independent and dependent criteria . Independent criteria
+exploit the essential characteristics of the training data without involving any mining
+algorithms to evaluate the goodness of a feature set or feature. And dependent criteria
+involve predetermined mining algorithms for feature selection to select features based
+on the performance of the mining algorithm applied to the selected subset of features.
+Finally, to stop the selection process, stop criteria must be determined. Feature selection
+process stops at validation procedure. It is not the part of feature selection process, but
+feature selection method must be validate by carrying out different tests and comparisons
+with previously established results or comparison with the results of competing methods
+using artificial datasets, real world datasets, or both.
+The relationship between the inductive learning method and feature selection algorithm
+infers a model. There are three general approaches for feature selection. First, the Filter
+Approach exploits the general characteristics of training data with independent of the
+mining algorithm [6]. Second, the Wrapper Approach explores the relationship between
+relevance and optimal feature subset selection. It searches for an optimal feature subset
+adapted to the specific mining algorithm [12]. And third, the Embedded Approach is
+done with a specific learning algorithm that performs feature selection in the process of
+training.
 \section{Related Works}
+\noindent Many feature selection methods have been proposed in the literature, and their comparative study is a very difficult task. Without knowing the relevant features in advance of
+the real data set, it is very difficult to find out the effectiveness of the feature selection
+methods, because data sets may include many challenges such as the huge number of irrelevant and redundant features, noisy data, and high dimensionality in term of features
+or samples. Therefore, the performance of the feature selection method relies on the performance of the learning method. There are many performance measures mentioned in
+the literature such as accuracy, computer resources, ratio of feature selection, etc. Most
+researchers agree that there is no so-called "best method". Therefore, the new feature
+selection methods are constantly increasing to tackle the specific problem (as mentioned
+above) with different strategy.
+\begin{itemize}
+	\item To ensure a better behavior of feature selection using an ensemble method
+	\item Combining with other techniques such as tree ensemble [86], and feature extraction
+	\item Reinterpreting existing algorithms
+	\item Creating a new method to deal with still-unresolved problems
+	\item To combine several feature selection methods
+\end{itemize}
+Dimensionality reduction prior to classification is advantageous in hyperspectral data
+analysis because the dimensionality of the input space greatly affects the performance of
+many supervised classification methods [7]. Further, there is a high likelihood of redundancy in the features and it is possible that some features contain less discriminatory
+information than others. Moreover, the high-dimensionality imposes requirements for
+storage space and computational load. The analysis in [1] supports this line of reasoning
+and suggests that feature selection may be a valuable procedure in preprocessing hyperspectral data for classification by the widely used SVM classifier. In hyperspectral
+image analysis, feature selection is preferred over feature extraction for dimensionality
+reduction [1], [10]. Feature extraction methods involve transforming the data and hence,
+crucial and critical information may be compromised and distorted. In contrast, feature
+selection methods strive to discover a subset of features which capture the fundamental
+characteristics of the data, while possessing sufficient capacity to discriminate between
+classes. Hence, they have the advantage of preserving the relevant original information of
+the data. There are various studies which establish the usefulness of feature selection in
+hyperspectral data classification. [1] lists various feature selection methods for hyperspectral data such as the SVM Recursive Feature Elimination (SVM-RFE) [11], Correlation
+based Feature Selection(CFS) [12], Minimum Redundancy Maximum Relevance(MRMR)
+[13] feature selection and Random Forests [14]. In [6], a band prioritization scheme based
+on Principal Component Analysis (PCA) and classification criterion is presented. Mutual
+information is a widely used quantity in various feature selection methods. In a general
+setting, features are ranked based on the mutual information between the spectral bands
+and the reference map(also known as the ground truth). In [7], mutual information is
+computed using the estimated reference map obtained by using available a priori knowledge about the spectral signature of frequently-encountered materials. Recently, Brown et al [15] have presented a framework for unifying many information based feature selection selection methods. Based on their results and suggestions we have chosen the set of
+feature selection methods that they recommend outperform others, in various situations,
+which are elaborated in the next section for the purposes of our analysis. In [8] a feature
+selection method based on minimization of a tight bound on the VC dimension is presented. This paper presents the first application of this novel method to hyperspectral
+data analysis.
 
 \section{Feature Relevancy and Redundancy}
 
 \section{General Approach for Feature Selection}
+\noindent The feature selection methods are typically presented in three classes based on how they combine the selection algorithm and the model building.
+\begin{enumerate}
+	\item \textbf{Filter method: }Filter type methods select variables regardless of the model. They are based only on general features like the correlation with the variable to predict. Filter methods suppress the least interesting variables. The other variables will be part of a classification or a regression model used to classify or to predict data. These methods are particularly effective in computation time and robust to overfitting.
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[height=1.0cm]{imgs/filterMethod.png}
+		\end{center}
+		\caption{Filter Method for feature selection}
+		\label{fig:Filter Method for feature selection}
+	\end{figure}
+	However, filter methods tend to select redundant variables because they do not consider the relationships between variables. Therefore, they are mainly used as a pre-process method.
+	\item \textbf{Wrapper method:} Wrapper methods evaluate subsets of variables which allows, unlike filter approaches, to detect the possible interactions between variables. The two main disadvantages of these methods are :
+	\begin{itemize}
+		\item The increasing overfitting risk when the number of observations is insufficient.
+		\item The significant computation time when the number of variables is large.
+	\end{itemize}
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[height=3.0cm]{imgs/wrapperMethod.png}
+		\end{center}
+		\caption{Wrapper Method for Feature selection}
+		\label{fig:Wrapper Method for Feature selection}
+	\end{figure}
 
+	\item \textbf{Embedded method:} Embedded methods have been recently proposed that try to combine the advantages of both previous methods. A learning algorithm takes advantage of its own variable selection process and performs feature selection and classification simultaneously.
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[height=3.0cm]{imgs/embeddedMethod.png}
+		\end{center}
+		\caption{Embedde Method for Feature selection}
+		\label{fig:Embedded Method for Feature selection}
+	\end{figure}
+\end{enumerate}
 \section{Feature Mining for Hyperspectral Image}
-
+\noindent Hyperspectral sensors record the reflectance from the Earth’s surface over the full range
+of solar wavelengths with high spectral resolution. The resulting high dimensional data
+contain rich information for a wide range of applications. However, for a specific application, not all the measurements are important and useful. The original feature space may
+not be the most effective space for representing the data. Feature mining, which includes
+feature generation, feature selection (FS), and feature extraction (FE), is a critical task
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=8.0cm]{imgs/OperationFeatureMining.png}
+	\end{center}
+	\caption{Possible operations for feature mining (only one path is used for any specific
+		approach).}
+	\label{fig:Possible operations for feature mining (only one path is used for any specific
+		approach).}
+\end{figure}
+for hyperspectral data classification. Significant research effort has focused on this issue since hyperspectral data became available in the late 1980s. The feature mining techniques which have been developed include supervised and unsupervised, parametric and
+nonparametric, linear and nonlinear methods, which all seek to identify the informative
+subspace. This paper provides an overview of both conventional and advanced feature
+reduction methods, with details on a few techniques that are commonly used for analysis
+of hyperspectral data. A general form that represents several linear and nonlinear FE
+methods is also presented. Experiments using two widely available hyperspectral data
+sets are included to illustrate selected FS and FE methods.
 \section{Classification Techniques}
 \noindent Digital image classification techniques group pixels to represent land cover features. Land cover could be forest, urban, agricultural and other types of features. There are two main image classification techniques.
 \begin{itemize}
