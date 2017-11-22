@@ -5,69 +5,36 @@ clearvars -except resS oneClassC oneClassG
 addpath('F:\CSE 700&800\Data set\10_4231_R7RX991C\aviris_hyperspectral_data');
 
 oneClassRes = [];
-% oneClassC = [];
-% oneClassG = [];
-
 
 for class = 1:14
     resultPCA = [];
-    
     load AVIRISPCA_train.txt;
     train = AVIRISPCA_train;
     clear AVIRISPCA_train;
-    
-    %     load NewTrain.txt;
-    %     train = NewTrain;
-    %     clear NewTrain;
-    
-    label_train = train(:,1);
+    C = train(:,1);
     train(:,1:2)=[];
     
-    C = label_train;
-    X = train;
-    
-    label_train = [];
-    train = [];
-    
-    for i = 1:size(X,1)
-        if C(i)==class
-            label_train = [label_train; 1];
-            train = [train; X(i,:)];
-        else
-            label_train = [label_train; 2];
-            train = [train; X(i,:)];
-        end
-        
-    end
+    [n,m] = size(train);
+    label(1:n) = 2;
+    tmp = find(C==class);
+    label(tmp) = 1;
+    label_train = label';
     train = train(:,resS(class,:));
     
+    C = [];
     load AVIRISPCA_test.txt;
     test = AVIRISPCA_test;
     clear AVIRISPCA_test;
-    
-    %     load NewTest.txt;
-    %     test = NewTest;
-    %     clear NewTest;
-    
-    label_test = test(:,1);
+    C = test(:,1);
     test(:,1:2)=[];
+    label=[];
+    [n,m] = size(test);
+    label(1:n) = 2;
+    tmp = find(C==class);
+    label(tmp) = 1;
+    label_test = label';
+    C = [];
     
-    C = label_test;
-    X = test;
-    
-    label_test = [];
-    test = [];
-    
-    for i = 1:size(X,1)
-        if C(i)==class
-            label_test = [label_test; 1];
-            test = [test; X(i,:)];
-        else
-            label_test = [label_test; 2];
-            test = [test; X(i,:)];
-        end
-        
-    end
     test = test(:,resS(class,:));
     
     for i=1:size(train, 2)
@@ -77,19 +44,8 @@ for class = 1:14
     
     addpath('F:\CSE 700&800\Data set\libsvm-3.22\matlab');
     
-    bestc=oneClassC(class); bestg=oneClassG(class);
-    
-    %             bestcv=0; bestc=0; bestg=0;
-    %             for c = 1:10
-    %                 for g = 0.01:0.01:3
-    %                     cmd=['-v 10 -c ',num2str(c), ' -g ', num2str(g)];
-    %                     cv = svmtrain(label_train, train, cmd);
-    %                     if(cv>=bestcv)
-    %                         bestcv=cv; bestc=c; bestg=g;
-    %                     end
-    %                     fprintf('%g   %g  %g (best c=%g, g=%g, rate=%g)\n', c, g, cv, bestc, bestg, bestcv);
-    %                 end
-    %             end
+%     bestc=oneClassC(class); bestg=oneClassG(class);
+      bestc=10; bestg=.75;
     
     cmd=['-t 2 -c ',num2str(bestc), ' -g ', num2str(bestg)];
     
@@ -101,3 +57,5 @@ for class = 1:14
     
     oneClassRes = [oneClassRes; resultPCA];
 end
+
+% save('oneClassParameter.mat','oneClassC', 'oneClassG');

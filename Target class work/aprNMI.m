@@ -1,10 +1,10 @@
 function S = aprNMI(C,X)
 
 [n,m] = size(X);
-
+labelNMI = hs_mut_inf(C,C);
 nmi = [];
 for i = 1:m
-    nmi(i) = hs_mut_inf(X(:,i),C)./((sqrt(hs_mut_inf(X(:,i),X(:,i)))*sqrt(hs_mut_inf(C,C)))+1e-40);
+    nmi(i) = hs_mut_inf(X(:,i),C)./((sqrt(hs_mut_inf(X(:,i),X(:,i)))*sqrt(labelNMI))+1e-40);
 end
 tmpMI = nmi;
 [nmi,id] = sort(nmi,'descend');
@@ -28,7 +28,7 @@ for feature = 2:20
             for j = 1:k
                 redun = redun + hs_mut_inf(X(:,i),X(:,S(j)))/(sqrt(hs_mut_inf(X(:,i),X(:,i)))*sqrt(hs_mut_inf(X(:,S(j)),X(:,S(j)))));
             end
-            G = hs_mut_inf(X(:,i),C)/(sqrt(hs_mut_inf(X(:,i),X(:,i)))*sqrt(hs_mut_inf(C,C))) - (1/k)*redun;
+            G = hs_mut_inf(X(:,i),C)/(sqrt(hs_mut_inf(X(:,i),X(:,i)))*sqrt(labelNMI)) - (1/k)*redun;
             if G > mx
                 mx = G;
                 next = i;
@@ -36,13 +36,8 @@ for feature = 2:20
         end
     end
     
-    %     if mx < 0
-    %         break;
-    %     end
-    
     S(feature) = next;
     flag(next) = 1;
-    
 end
 
 end
