@@ -1,14 +1,14 @@
 \documentclass[document.tex]{subfiles}
 \begin{document}
 
-\chapter{Feature Selection and Classification}
+\chapter{Feature Reduction and Classification}
 \noindent Feature mining generally refers to transform a high dimensional correlated dataset into a low dimensional uncorrelated data space. It can be done by following two steps:
 \begin{itemize}
 	\item Feature extraction
 	\item Feature selection
 \end{itemize}
 
-\section{Feature Extraction Based on Principal Component Analysis}
+\section{Feature Extraction}
 \noindent Principal component analysis (PCA)\cite{7} is one of the most popular unsupervised feature extraction technique.The principal component analysis is based on the fact that neighboring bands of hyperspectral images are highly correlated and often convey almost the same information about the object. The PCA employs the statistic properties of
 hyperspectral bands to examine band dependency or correlation. This transformation
 is based on the mathematical principle known as eigenvalue decomposition of the
@@ -68,16 +68,16 @@ obtained by unsupervised feature extraction technique principal component analys
 \hat{I}(y_i,f_j) = \dfrac{\sum_{i}\sum_{j} p(y_i,f_j)\log\dfrac{p(y_i,f_j)}{p(y_i)p(f_j)}}{\sqrt{I(y_i,y_i)}\sqrt{I(f_j,f_j)}}
 \end{equation}  
 
-\section{Proposed Method}
+\section{Proposed Feature Reduction Method}
 \noindent The proposed method is a target class oriented feature selection technique which select relevant features for each class of the dataset using principal component analysis (PCA) as feature extraction\cite{7} and normalized mutual information (nMI) as features selection\cite{9}. At first, the unsupervised feature extraction technique PCA is applied to find uncorrelated dataset in smaller data space. Then normalized mutual information (nMI) with two constraints to maximize general relevance and minimize redundancy on the components obtained via PCA is applied for feature selection\cite{21}. Here we consider one class of the dataset at a time and make all others as the background class. For each class of the dataset feature selection method is applied to obtain a relevant feature space to classify that class. Finally kernel support vector machine (SVM) is applied for classification purpose of the data set\cite{11}. Here first SVM use those selected features of each class to train a model for that specific class and test data to find test result for that specific class. RBF kernel\cite{22} is used in SVM as the relationship between class label C and datase $X_i$ is nonlinear. K-fold cross validation is applied to find correct parameter C and $\gamma$ of KSVM for each target class of the dataset. Finally average of those accuracy for each class is the final classification accuracy.
 
-\section{Implementation}
+\section{Experimental Procedure}
 
-\subsection{Implementation of PCA Based Feature Extraction}
+\subsection{Feature Extraction}
 
-\subsection{Implementation of nMI Based Feature Selection}
+\subsection{nMI Based Feature Selection}
 
-\subsection{Implementation of Proposed method}
+\subsection{Proposed method}
 
 \section{Experimental Results}
 

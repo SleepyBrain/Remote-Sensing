@@ -12,27 +12,27 @@
 \noindent Remote sensing is the acquisition of information about an object or phenomenon without making physical contact with the object. Remote sensing is used in numerous fields, including geography, land surveying and most Earth Science disciplines (for example, hydrology, ecology, oceanography, glaciology, geology); it also has military, intelligence, commercial, economic, planning, and humanitarian applications.
 
 \begin{figure}[H]
-	\centering
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\includegraphics[width=0.9\textwidth]{imgs/cube.png} % second figure itself
-		\caption{Two dimensional projection
-			of Hyperspectral cube}
-		\label{fig: Two dimensional projection
-			of Hyperspectral cube}
-	\end{minipage}
-	\begin{minipage}{0.40\textwidth}
-		\centering
-		\includegraphics[width=0.9\textwidth]{imgs/Remote_Sensing.jpg} % first figure itself
-		\caption{Remote Sensing}
-		\label{fig: Remote Sensing}
-	\end{minipage}\hfill
+	\begin{center}
+		\includegraphics[height=9.0cm]{imgs/Remote_Sensing.jpg}
+	\end{center}
+	\caption{Remote Sensing}
+	\label{fig: Remote Sensing}
 \end{figure}
 
 \noindent In current usage, the term "remote sensing" generally refers to the use of satellite- or aircraft-based sensor technologies to detect and classify objects on Earth, including on the surface and in the atmosphere and oceans, based on propagated signals (e.g. electromagnetic radiation). It may be split into "active" remote sensing (i.e., when a signal is emitted by a satellite or aircraft and its reflection by the object is detected by the sensor) and "passive" remote sensing (i.e., when the reflection of sunlight is detected by the sensor).
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=8.0cm]{imgs/cube.png}
+	\end{center}
+	\caption{Two dimensional projection
+		of Hyperspectral cube}
+	\label{Two dimensional projection
+		of Hyperspectral cube}
+\end{figure}
 
 \section{Challenges of Remote Sensing Data}
 \noindent Hyperspectral imaging is a popular field of remote sensing. The main challenge of hyperspectral image is its highly correlated huge data set. On the other hand, this large number of spectral bands has a direct impact on the required computational cost for classification. Also, as the feature space dimension increases, if the size of the training 
+\begin{comment}
 \begin{figure}[H]
 	\centering
 	\begin{minipage}{0.450\textwidth}
@@ -50,7 +50,29 @@
 		\label{fig: Curse of dimensionality}
 	\end{minipage}\hfill
 \end{figure}
+
+\end{comment}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=8.0cm]{imgs/capture.png}
+	\end{center}
+	\caption{Technical characteristics of
+		digital image data\cite{3}}
+	\label{fig: Technical characteristics of
+		digital image data}
+\end{figure}
+
  \noindent data does not grow correspondingly, a reduction in the classification accuracy of the testing data is observed due to poor parameter estimation of the supervised classifier. This effect is known as the Hughes phenomenon\cite{1}.
+ 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=8.0cm]{imgs/curse.png}
+	\end{center}
+	\caption{Curse of dimensionality\cite{9}}
+	\label{fig: Curse of dimensionality}
+\end{figure}
+
 
 \section{Motivation}
 \noindent Hyperspectral image processing is fast growing research field because of its various application. Observed area of hyperspectral images are classified into different groups of object by classification of the image. Feature extraction and selecting only relevant features before classification is an important task to achieve high classification accuracy. So relevant feature selection is very important for classification of hyperspectral images. Few motivation for this research is given below:
@@ -62,7 +84,6 @@
 
 \section{Objectives}
 \noindent The main goal of this research is to illustrate a target class oriented feature mining method which is a combination of feature extraction and feature selection which gives a better classification accuracy. 
-\clearpage
 \textbf{Objective of this research will be:}
 \begin{itemize}
 	\item Create a method of feature extraction by removing correlation among bands.
