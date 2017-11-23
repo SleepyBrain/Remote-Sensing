@@ -44,8 +44,8 @@ for class = 1:14
     
     addpath('F:\CSE 700&800\Data set\libsvm-3.22\matlab');
     
-%     bestc=oneClassC(class); bestg=oneClassG(class);
-      bestc=10; bestg=.75;
+    bestc=oneClassC(class); bestg=oneClassG(class);
+%       bestc=5; bestg=0.75;
     
     cmd=['-t 2 -c ',num2str(bestc), ' -g ', num2str(bestg)];
     
@@ -57,5 +57,7 @@ for class = 1:14
     
     oneClassRes = [oneClassRes; resultPCA];
 end
-
-% save('oneClassParameter.mat','oneClassC', 'oneClassG');
+tcoRes = [];
+for i=1:8
+    tcoRes(i) = mean(oneClassRes(:,i));
+end
