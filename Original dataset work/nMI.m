@@ -49,4 +49,4 @@ for feature = 2:20
     S(feature) = next;
     flag(next) = 1;
 end
-id = S;
+% id = S;

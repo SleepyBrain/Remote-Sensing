@@ -31,7 +31,7 @@ for feature = 2:20
     mx = -1;
     next = 0;
     for i = 1:20
-        if flag(i) == 0 && tmpMI(i) > 0.1
+        if flag(i) == 0 
             redun = 0;
             [p k] = size(S);
             for j = 1:k
@@ -44,9 +44,9 @@ for feature = 2:20
             end
         end
     end
-    if mx < 0
-        break;
-    end
+%     if mx < 0
+%         break;
+%     end
     S(feature) = next;
     flag(next) = 1;
 end

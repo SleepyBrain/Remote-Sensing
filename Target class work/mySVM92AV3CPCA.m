@@ -58,6 +58,6 @@ for class = 1:14
     oneClassRes = [oneClassRes; resultPCA];
 end
 tcoRes = [];
-for i=1:8
+for i=1:20
     tcoRes(i) = mean(oneClassRes(:,i));
 end
