@@ -161,7 +161,7 @@ summarized as follows:
 	\item \textbf{Step 5:} Select the best principal component based on the high value of NMI.
 	\item \textbf{Step 6:} Apply Battiti\cite{23} approach for selecting multiple features based on NMI for the target class.
 	\item \textbf{Step 7:} Repeat step 3 to 6 for each class of the data set.
-	\item \textbf{Step 8:} Apply the features of each target class to the SVM classifier.
+	\item \textbf{Step 8:} Apply the features of each target class to the SVM classifier.\\
 	All the classes of the data set are not important for a particular application and this is why a target class oriented NMI method applied on PCA that select relevant features only for that target class. 
 \end{itemize}
 
@@ -219,6 +219,13 @@ available is designated into sixteen classes. The corrected Indian Pines data-se
 	\end{center}
 	\label{tab:Selected features with Org+NMI}
 \end{table}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=7.0cm]{imgs/OrgNmi.png}
+	\end{center}
+	\caption{Normalized mutual information between class labels and original bands}
+	\label{fig:Normalized mutual information between class labels and original bands}
+\end{figure}
 \subsubsection{PCA Dataset Plus nMI Approach}
 \begin{table}[H]
 	\caption{Selected features with PCA+NMI}
@@ -231,6 +238,13 @@ available is designated into sixteen classes. The corrected Indian Pines data-se
 	\end{center}
 	\label{tab:Selected features with PCA+NMI}
 \end{table}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=8.0cm]{imgs/nmi.png}
+	\end{center}
+	\caption{Normalized mutual information between class labels and PC1-PC20}
+	\label{fig:Normalized mutual information between class labels and PC1-PC20}
+\end{figure}
 \subsection{Proposed Method Result}
 \begin{table}[H]
 	\caption{Selected features for each target class with proposed method (TCO+PCA+NMI)}
@@ -304,21 +318,21 @@ available is designated into sixteen classes. The corrected Indian Pines data-se
 		\begin{tabular}{|c|c|}
 			\hline
 			Method & Classification Result\\ \hline
-			Org+NMI & \\ \hline
-			PCA & \\ \hline
-			PCA+NMI &\\ \hline
-			TCO+PCA+NMI & \\ \hline
+			Org+NMI & 72.26\%\\ \hline
+			PCA & 89.05\%\\ \hline
+			PCA+NMI & 92.79\%\\ \hline
+			TCO+PCA+NMI & 96.57\%\\ \hline
 		\end{tabular}
 	\end{center}
 	\label{tab:Classification result for 8 features}
 \end{table}
 
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[height=10.0cm]{imgs/4MethodsAc.png}
-	\end{center}
-	\caption{Classification accuracy of AVIRIS 92AV3c data}
-	\label{fig:Classification accuracy of AVIRIS 92AV3c data}
-\end{figure}
+%\begin{figure}[H]
+%	\begin{center}
+%		\includegraphics[height=10.0cm]{imgs/4MethodsAc.png}
+%	\end{center}
+%	\caption{Classification accuracy of AVIRIS 92AV3c data}
+%	\label{fig:Classification accuracy of AVIRIS 92AV3c data}
+%\end{figure}
 
 \end{document}
