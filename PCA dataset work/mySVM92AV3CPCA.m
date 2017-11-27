@@ -53,4 +53,4 @@ for f=1:10
     [predict_label, accuracy, dec_values] = svmpredict(label_test, test(:,1:f), model);
     resultPCA = [resultPCA accuracy(1)];
 end
-% save('PCA.mat','id','resultPCA','bestc','bestg');
+% save('PCA.mat','resultPCA','bestc','bestg');

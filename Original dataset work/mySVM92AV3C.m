@@ -33,11 +33,11 @@ end
 
 addpath('F:\CSE 700&800\Data set\libsvm-3.22\matlab');
 
-bestc=10;bestg=2.85;
-% bestc=10;bestg=2.44;
+bestc=10;bestg=2.44;%best Org+NMI
+% bestc=30;bestg=4.4;%last time Org+NMI
 
 % bestcv=0; bestc=0; bestg=0;
-% for c = 1:20
+% for c = 20:30
 %     for g = 0:0.1:10
 %         cmd=['-v 10 -c ',num2str(c), ' -g ', num2str(g)];
 %         cv = svmtrain(label_train, train, cmd);
