@@ -4,9 +4,9 @@
 \chapter{Conclusion and Future Works}
 
 \section{Conclusion}
-\noindent This research proposed a target class oriented feature reduction method in collaboration with feature extraction and feature selection for higher classification accuracy. Kernel support vector machine (KSVM) is than used for classification purpose. This proposed approach shows a significant improvement in classification accuracy with respect to all methods in current literature. The average classification accuracy of all 14 class with only 8 ranked features is 96.69\% where only PCA+NMI gives 92.79\% classification accuracy which is a great improvement.
+\noindent The proposed target class oriented subspace detection (TCOSD) provide improved subspace for the task of classification. The classification performance of the proposed method is justified using KSVM. It can be seen that the proposed method is able to detect a better subspace which can provide the best classification accuracy among the standard approaches studied. This is because the proposed method selects the most relevant subset of images for required classes. It also consider the spatial information while performing the feature selection which was absent in PCA only method. Similarly, PCA+NMI considers all the classes together and come up with suboptimal solution. Therefore, the proposed method is most suitable for ground object detection and its classification.
 \section{Limitations}
-\noindent There are some limitations of this proposed feature reduction method. The proposed method needs a huge amount of computational time and computational power. This approach may become very costly when the number of training and testing samples and number of class labels are very large.
+\noindent The proposed method needs a huge amount of computational time and processing power. This approach may become very costly when the number of training and testing samples and number of class labels are very large.
 \section{Future Works}
-The proposed feature reduction performance can be improved more with respect to the necessary computational time by introducing adaptive threshold while keeping the first few PCA images.
+The proposed method (TCOSD) needs some further improvement to handle the complex class relationships where only a few feature may not capable to complete the task.
 \end{document}
