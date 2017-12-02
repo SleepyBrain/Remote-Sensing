@@ -7,9 +7,9 @@
 has become one of the most powerful and fastest growing technologies in the field of remote sensing \cite{3}. Hyperspectral sensors collect land cover reflectance in many narrow contiguous spectral bands and form a large data cube\cite{3}. For instance, the hyperspectral imaging sensors like NASA Airborne Visible/Infrared Imaging
 Spectrometer (AVIRIS) which simultaneously measures 224 bands with a fine resolution of 0.01 $\mu$m in the spectral range of visible to near infrared. This data cube contains rich information for wide range of application including effective land cover detection and classification \cite{24}. This large data also presents some challenges while classifying into constituent objects. A major classification challenge is when the training data set is small in compare to feature space dimensions, the classification starts to decrease. This problem is known as the curse of dimensionality or Hughes phenomenon\cite{4}\cite{25}\cite{26}. On the other hand, some bands are highly correlated and can be removed. In addition not all the bands are important for a specific classification problem. Therefore, an efficient and reliable technique to extract most informative and relevant features for classification is a major interest in current literature. The aforementioned feature reduction problem can be addressed using two basic approaches\cite{2}. One is the extraction of limited number of features after mapping to a new feature space based on some criteria like variance \cite{27,28}\cite{8}\cite{7}. For instance, PCA reduces the dimensionality of the input hyperspectral image which mitigates the curse of dimensionality. In PCA, an orthogonal transformation is performed to uncorrelate the input data set and the components are selected with higher variance. However, PCA doesn't consider the class structure of input data and depends solely on the global variance. Therefore, some noisy bands with high variance can be selected as a resultant feature. This limits the performance of PCA in classification task. An alternative approach to overcome the limitation of PCA and to find an effective subspace, some sorts of feature selection on PCA can be applied\cite{34}. Normalized Mutual Information (NMI) is one of the most popular feature selection technique\cite{9,10,20}.
 
-Thus, feature extraction and feature selection gives a significant improvement in the classification accuracy. In some application of hyperspectral image only one class may be needed to identify at a time. For example, in land cover identification, if the objective is to identify forest land, we may not be interested in any other class except forest of the data set. In this paper, a target class oriented feature selection method is proposed which uses normalized mutual information measure over PCA data to maximize the relevance  of the input selected subset. Thus, feature selection over PCA based on target class samples also  overcomes the limitation of the PCA. Finally, the Kernel Support Vector Machine (KSVM) classifier is used to assess the effectiveness of the proposed method. 
+\noindent Thus, feature extraction and feature selection gives a significant improvement in the classification accuracy. In some application of hyperspectral image only one class may be needed to identify at a time. For example, in land cover identification, if the objective is to identify forest land, we may not be interested in any other class except forest of the data set. In this paper, a target class oriented feature selection method is proposed which uses normalized mutual information measure over PCA data to maximize the relevance  of the input selected subset. Thus, feature selection over PCA based on target class samples also  overcomes the limitation of the PCA. Finally, the Kernel Support Vector Machine (KSVM) classifier is used to assess the effectiveness of the proposed method. 
 
- Feature mining generally refers to transform a high dimensional correlated dataset into a low dimensional uncorrelated data space. It can be done by following two steps:
+\noindent Feature mining generally refers to transform a high dimensional correlated dataset into a low dimensional uncorrelated data space. It can be done by following two steps:
 \begin{itemize}
 	\item Feature extraction
 	\item Feature selection
@@ -45,12 +45,12 @@ Principal Component Analysis produces a new set of reduced and uncorrelated feat
 cov(\textbf{X}_2,\textbf{X}_2) = \dfrac{\sum_{j=1}^{n}(X_1^j-\mu_1)(X_2^j-\mu_2)}{n}
 \end{equation}
 
-From this covariance matrix eigenvalue and eigenvector is determined. The eigenvectors are ordered according to the highest eigenvalue. This first few eigenvectors are selected as principal component as they contain most of the variance of the data set. The new features can be obtained as:
+\noindent From this covariance matrix eigenvalue and eigenvector is determined. The eigenvectors are ordered according to the highest eigenvalue. This first few eigenvectors are selected as principal component as they contain most of the variance of the data set. The new features can be obtained as:
 \begin{equation}
 \textbf{Y} = \textbf{E}^T\textbf{X}
 \end{equation}
 
-Where \textbf{Y} is the transformed PCA data and $\textbf{E}^T$ is the matrix of normalized eigenvectors ordered by the higher eigenvalues. The first few components can be used as the extracted features.
+\noindent Where \textbf{Y} is the transformed PCA data and $\textbf{E}^T$ is the matrix of normalized eigenvectors ordered by the higher eigenvalues. The first few components can be used as the extracted features.
 
  
 \section{Feature Selection Based on Normalized Mutual Information}
@@ -103,14 +103,14 @@ and 1 for the identical or one-to-one relationship case\cite{9}. Normalized mutu
 \hat{I}(\textbf{X},\textbf{Y}) = \dfrac{I(\textbf{X}, \textbf{Y})}{\sqrt{I(\textbf{X},\textbf{X})}\sqrt{I( \textbf{Y}, \textbf{Y})}}
 \end{equation}
 
-The aim of feature selection is to find only informative features
+\noindent The aim of feature selection is to find only informative features
 k $<$ n for a dataset. To find uncorrelated informative features, Normalized
 Mutual Information is applied over PCA images. If the reference image is \textbf{C} and PCA image is \textbf{Y} then the NMI is determined between \textbf{Y} and \textbf{C} as follows:
 \begin{equation}
 \hat{I}(\textbf{Y},\textbf{C}) = \dfrac{I(\textbf{Y}, \textbf{C})}{\sqrt{I(\textbf{Y},\textbf{Y})}\sqrt{I( \textbf{C}, \textbf{C})}}
 \end{equation}
 
-The NMI from equation (4.5) has been used to determine the relevancy of selected subset. The 2nd term of Eq. (4.6) ensures that the selected features do not have redundancy among them. 
+\noindent The NMI from equation (4.5) has been used to determine the relevancy of selected subset. The 2nd term of Eq. (4.6) ensures that the selected features do not have redundancy among them. 
 \begin{equation}
 \hat{R}(\textbf{Y}_i,k) = \hat{I}(\textbf{Y}_i,\textbf{C}) - \dfrac{1}{k} \sum_{\textbf{Y} = S_k} \hat{I}(\textbf{Y}_i,\textbf{Y}),  \textbf{Y}_i\notin S_k
 \end{equation}
@@ -260,7 +260,7 @@ Fig. 1 shows few PCA images.
 	\label{fig:Some principal components}
 \end{figure}
 
-It is not always true that higher the variance higher the information. In Fig. 1, it is visually shown that the PCA image 7 has high variance but less spatial information than PCA image 9.
+\noindent It is not always true that higher the variance higher the information. In Fig. 1, it is visually shown that the PCA image 7 has high variance but less spatial information than PCA image 9.
 %\noindent In this research, at first the dimensions of the dataset is reduced from 220 using PCA. Here first few component contains most of the variation of the dataset. Figure 4.3 shows few components after applying PCA to the original AVIRIS 92AV3C dataset. First component is the most informative than second and so on. But PCA considers only the global variable of the dataset therefore some components may have more variance but less information for some specific class. Principal component 7 and principal component 9 is an example of this problem of PCA.
 %\begin{figure}[H]
 %	\begin{center}
@@ -337,7 +337,7 @@ To address the limitation of PCA, feature selection method is used. Normalized m
 	\label{fig:Normalized mutual information between class labels and original bands}
 \end{figure}
 
-Fig. 4.5 shows the NMI between class labels and original data bands. The higher the NMI value of a band, the band is more important for the classification. Fig. 4.6 represents NMI between class labels and first 20 principal components. Therefore, in PCA+NMI, principal components are selected based on high value of NMI. 
+\noindent Fig. 4.5 shows the NMI between class labels and original data bands. The higher the NMI value of a band, the band is more important for the classification. Fig. 4.6 represents NMI between class labels and first 20 principal components. Therefore, in PCA+NMI, principal components are selected based on high value of NMI. 
 
 \begin{table}[H]
 	\caption{Selected features with PCA+NMI}
@@ -479,7 +479,7 @@ The hyperspectral image named 92AV3C which was captured over the indian pine tes
 	\label{tab:Details of the train and test samples}
 \end{table}
 
-The Selected features is applied to a KSVM classifier. A comparison of the classification accuracy is presented in Table-4.5 and it can be seen that the proposed method outperforms the baseline approaches.
+\noindent The Selected features is applied to a KSVM classifier. A comparison of the classification accuracy is presented in Table-4.5 and it can be seen that the proposed method outperforms the baseline approaches.
 \begin{table}[H]
 	\caption{Details of parameter for KSVM(RBF kernel)}
 	\begin{center}
@@ -494,7 +494,7 @@ The Selected features is applied to a KSVM classifier. A comparison of the class
 	\end{center}
 	\label{tab:Details of parameter for KSVM(RBF kernel)}
 \end{table}
-The kernel hyperparameter such as the best cost C and kernel width $\gamma$ are calculated using 10 fold cross-validation\cite{29}. Table-4.4 shows kernel hyperparameter used in this experiment.
+\noindent The kernel hyperparameter such as the best cost C and kernel width $\gamma$ are calculated using 10 fold cross-validation\cite{29}. Table-4.4 shows kernel hyperparameter used in this experiment.
 \begin{table}[H]
 	\caption{Classification result for 8 features}
 	\begin{center}
@@ -509,7 +509,7 @@ The kernel hyperparameter such as the best cost C and kernel width $\gamma$ are 
 	\end{center}
 	\label{tab:Classification result for 10 features}
 \end{table}
-Fig. 4.7 shows a visualization of comparison among the proposed approach and some standard approach studied when the classification accuracy is determined by adding the features progressively.\\
+\noindent Fig. 4.7 shows a visualization of comparison among the proposed approach and some standard approach studied when the classification accuracy is determined by adding the features progressively.\\
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[height=10.0cm]{imgs/Res.png}
