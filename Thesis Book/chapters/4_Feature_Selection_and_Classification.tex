@@ -161,7 +161,7 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 	Dataset = ($Featurevector^T$ $\times$ Final data) + mean of each band image.
 \end{itemize}
 
-\subsection{nMI Based Feature Selection}
+\subsection{NMI Based Feature Selection}
 \begin{itemize}
 	\item \textbf{Step 1: Normalizing dataset into a range}\\
 	In my analysis I have normalized the dataset in 1 to 64 range. Then calculated a 64 $\times$ 64 probability table from which I have calculated the marginal probability and the joint probability of variable(s). 
@@ -277,7 +277,7 @@ Fig. 1 shows few PCA images.
 	\label{fig:Cumulative variance of bands obtained via PCA}
 \end{figure}
 \noindent Figure 4.4 represents the cumulative relations between variance and each component. Here we can see than first 8 components of PCA has contain 99.69\% variations of the dataset.
-\subsection{nMI Based Feature Selection Result}
+\subsection{NMI Based Feature Selection Result}
 %\subsubsection{Original Dataset Plus nMI Approach}
 %\begin{table}[H]
 %	\caption{Selected features with Org+NMI}
@@ -359,7 +359,7 @@ To address the limitation of PCA, feature selection method is used. Normalized m
 	\label{fig:Normalized mutual information between class labels and PC1-PC20}
 \end{figure}
 
-\subsection{Proposed Method Result}
+\subsection{Experimental Results}
 In this experiment, we proposed a target class oriented feature selection method (TCOSD) using NMI measure for maximizing the relevance of the selected subspace.The objective is to show that the target class oriented feature selection is more effective than the traditional feature selection while considering all the classes together. The proposed method manages this situation by considering one class as target at a time and the remaining as the background. Table-4.3 shows the selected features for each target class. 
 \begin{table}[H]
 	\caption{Selected features for each target class with proposed method (TCOSD)}
@@ -489,7 +489,7 @@ The hyperspectral image named 92AV3C which was captured over the indian pine tes
 			Org+NMI & 10 & 2.44 \\ \hline
 			PCA & 19 & 2.40 \\ \hline
 			PCA+NMI & 16 & 0.7\\ \hline
-			TCOSD & 5 & 0.75\\ \hline
+			TCOSD (Proposed) & 5 & 0.75\\ \hline
 		\end{tabular}
 	\end{center}
 	\label{tab:Details of parameter for KSVM(RBF kernel)}
@@ -504,7 +504,7 @@ The hyperspectral image named 92AV3C which was captured over the indian pine tes
 			Org+NMI & 72.26\%\\ \hline
 			PCA & 89.90\%\\ \hline
 			PCA+NMI & 93.12\%\\ \hline
-			TCOSD& 96.57\%\\ \hline
+			TCOSD (Proposed)& 96.57\%\\ \hline
 		\end{tabular}
 	\end{center}
 	\label{tab:Classification result for 10 features}
