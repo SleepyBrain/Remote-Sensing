@@ -222,6 +222,15 @@ PCA features.
 \item Step 7: Apply the selected features to the KSVM classifier.
 \item Step 8: Repeat step 3 to 6 by making another class as target and the remaining as background.
 \end{itemize}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=12.0cm]{imgs/flow.pdf}
+	\end{center}
+	\caption{Flow chart of the proposed TCOSD Method}
+	\label{fig:Flow chart of the proposed TCOSD Method}
+\end{figure}
+
 All the classes of the data set are not important for some specific application and this is why a target class oriented NMI method applied that select relevant features only for that target class. We call this method as Target Class Oriented Subspace Detection (TCOSD). In this work, Kernel Support Vector Machine (KSVM) is applied to assess the performance as it is the most popular classifier in the current literature \cite{11}. 
 
 \section{Experimental Results}
