@@ -13,10 +13,18 @@
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=9.0cm]{imgs/Remote_Sensing.jpg}
+		\includegraphics[height=6.0cm]{imgs/Active.png}
 	\end{center}
-	\caption{Remote Sensing\cite{32}}
-	\label{fig: Remote Sensing}
+	\caption{Active remote sensing\cite{32}}
+	\label{fig: Active remote sensing}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=6.0cm]{imgs/Passive.png}
+	\end{center}
+	\caption{Passive remote sensing\cite{32}}
+	\label{fig: Passive remote sensing}
 \end{figure}
 
 \noindent In current usage, the term "remote sensing" generally refers to the use of satellite- or aircraft-based sensor technologies to detect and classify objects on Earth, including on the surface and in the atmosphere and oceans, based on propagated signals (e.g. electromagnetic radiation). It may be split into "active" remote sensing (i.e., when a signal is emitted by a satellite or aircraft and its reflection by the object is detected by the sensor) and "passive" remote sensing (i.e., when the reflection of sunlight is detected by the sensor).
@@ -24,34 +32,21 @@
 	\begin{center}
 		\includegraphics[height=8.0cm]{imgs/cube.png}
 	\end{center}
-	\caption{Two dimensional projection
+	\caption{3D view
 		of Hyperspectral cube\cite{31}}
-	\label{Two dimensional projection
+	\label{3D view 
 		of Hyperspectral cube}
 \end{figure}
 
-\section{Challenges of Remote Sensing Data}
-\noindent Hyperspectral imaging is a popular field of remote sensing. The main challenge of hyperspectral image is its highly correlated huge data set. On the other hand, this large number of spectral bands has a direct impact on the required computational cost for classification. Also, as the feature space dimension increases, if the size of the training 
-\begin{comment}
-\begin{figure}[H]
-	\centering
-	\begin{minipage}{0.450\textwidth}
-		\centering
-		\includegraphics[height=0.7\textwidth]{imgs/capture.png} % first figure itself
-		\caption{Technical characteristics of
-			digital image data\cite{3}}
-		\label{fig: Technical characteristics of
-			digital image data}
-	\end{minipage}
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\includegraphics[width=0.7\textwidth]{imgs/curse.png} % second figure itself
-		\caption{Curse of dimensionality\cite{9}}
-		\label{fig: Curse of dimensionality}
-	\end{minipage}\hfill
-\end{figure}
-
-\end{comment}
+\section{Challenges of Remote Sensing}
+%\noindent Hyperspectral imaging is a popular field of remote sensing. The main challenge of hyperspectral image is its highly correlated huge data set. On the other hand, this large number of spectral bands has a direct impact on the required computational cost for classification. Also, as the feature space dimension increases, if the size of the training 
+\noindent As we have entered an era of high resolution earth observation, the RS data are undergoing an explosive growth. The proliferation of data also give rise to the increasing complexity of RS data, like the diversity and higher dimensionality characteristic of the data. RS data are regarded as RS “Big Data”. In ground object detection, remote sensing faces several challenges. A few challenges of remote sensing in ground object detection is given below:
+\begin{itemize}
+	\item Field sampling is difficult and expensive
+	\item The geographical orientation is difficult in the images
+	\item The upwelling signal to the sensor is low and disturbed
+	\item The water and its constituents limits the usable spectral region
+\end{itemize}
 
 \begin{figure}[H]
 	\begin{center}
@@ -63,15 +58,9 @@
 		digital image data}
 \end{figure}
 
- \noindent data does not grow correspondingly, a reduction in the classification accuracy of the testing data is observed due to poor parameter estimation of the supervised classifier. This effect is known as the Hughes phenomenon\cite{1}.
+% \noindent data does not grow correspondingly, a reduction in the classification accuracy of the testing data is observed due to poor parameter estimation of the supervised classifier. This effect is known as the Hughes phenomenon\cite{1}.
  
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[height=8.0cm]{imgs/curse.png}
-	\end{center}
-	\caption{Curse of dimensionality\cite{9}}
-	\label{fig: Curse of dimensionality}
-\end{figure}
+
 
 
 \section{Motivation}
@@ -84,7 +73,7 @@
 
 \section{Objectives}
 \noindent The main goal of this research is to illustrate a target class oriented feature mining method which is a combination of feature extraction and feature selection which gives a better classification accuracy. 
-\textbf{Objective of this research will be:}
+Objective of this research will be:
 \begin{itemize}
 	\item Create a method of feature extraction by removing correlation among bands.
 	\item Create an approach to select features after feature extraction.

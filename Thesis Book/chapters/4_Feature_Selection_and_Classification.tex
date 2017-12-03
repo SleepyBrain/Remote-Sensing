@@ -1,7 +1,7 @@
 \documentclass[document.tex]{subfiles}
 \begin{document}
 
-\chapter{Feature Reduction and Classification}
+\chapter{Feature Mining and Classification}
 \section{Introduction}
 \noindent Over the past few decade hyperspectral image sensor
 has become one of the most powerful and fastest growing technologies in the field of remote sensing \cite{3}. Hyperspectral sensors collect land cover reflectance in many narrow contiguous spectral bands and form a large data cube\cite{3}. For instance, the hyperspectral imaging sensors like NASA Airborne Visible/Infrared Imaging
@@ -115,7 +115,7 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 \hat{R}(\textbf{Y}_i,k) = \hat{I}(\textbf{Y}_i,\textbf{C}) - \dfrac{1}{k} \sum_{\textbf{Y} = S_k} \hat{I}(\textbf{Y}_i,\textbf{Y}),  \textbf{Y}_i\notin S_k
 \end{equation}
 
-\section{Proposed Feature Reduction Method}
+\section{Proposed Subspace Detection Method}
 \noindent The proposed method is a target class oriented feature selection technique which select relevant features for each class of the dataset using principal component analysis (PCA) as feature extraction\cite{7} and normalized mutual information (nMI) as features selection\cite{9}. At first, the unsupervised feature extraction technique PCA is applied to find uncorrelated dataset in smaller data space. Then normalized mutual information (nMI) with two constraints to maximize general relevance and minimize redundancy on the components obtained via PCA is applied for feature selection\cite{21}. Here we consider one class of the dataset at a time and make all others as the background class. For each class of the dataset feature selection method is applied to obtain a relevant feature space to classify that class. Finally kernel support vector machine (SVM) is applied for classification purpose of the data set\cite{11}. Here first SVM use those selected features of each class to train a model for that specific class and test data to find test result for that specific class. RBF kernel\cite{22} is used in SVM as the relationship between class label C and datase $X_i$ is nonlinear. K-fold cross validation is applied to find correct parameter C and $\gamma$ of KSVM for each target class of the dataset. Finally average of those accuracy for each class is the final classification accuracy.
 
 \section{Experimental Procedure}
@@ -170,7 +170,7 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 	\item \textbf{Step 3: Calculating normalized mutual information}\\
 	To normalize mutual information values between 0 to 1 I have used equation (4.6). Then I have used this normalized mutual information values to select effective features for the classification of the dataset. 
 \end{itemize}
-\subsubsection{Original Dataset Plus nMI Approach}
+\subsubsection{Original Dataset Plus NMI Approach}
 \begin{itemize}
 	\item \textbf{Step 1: Get input data}\\
 	In this analysis I have used original hyperspectral data set. I have taken all 220 bands into consideration. Then I generate class labels of the sample. I have taken
@@ -182,7 +182,7 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 	\item \textbf{Step 4: Calculating normalized mutual information}\\
 	To normalize mutual information values between 0 to 1 I have used equation (4.6). Then I have used this normalized mutual information values to select effective features for the classification of the dataset. 
 \end{itemize}
-\subsubsection{PCA Dataset Plus nMI Approach}
+\subsubsection{PCA Dataset Plus NMI Approach}
 \begin{itemize}
 	\item \textbf{Step 1: Get input data}\\
 	In this analysis I have used dataset obtained via principal component analysis. I have taken first 20 principal components into consideration. Then I generate class labels of the sample. I have taken
@@ -235,7 +235,7 @@ available is designated into sixteen classes. The corrected Indian Pines data-se
 108), (150-163), 220.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=12.0cm]{imgs/Dataset.png}
+		\includegraphics[height=8.0cm]{imgs/Dataset.png}
 	\end{center}
 	\caption{AVIRIS 92AV3C dataset for experiment}
 	\label{fig:AVIRIS 92AV3C dataset for experiment}
@@ -243,7 +243,7 @@ available is designated into sixteen classes. The corrected Indian Pines data-se
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=12.0cm]{imgs/Ground.png}
+		\includegraphics[height=8.0cm]{imgs/Ground.png}
 	\end{center}
 	\caption{Ground truth of AVIRIS 92AV3C dataset}
 	\label{fig:Ground truth of AVIRIS 92AV3C dataset}
