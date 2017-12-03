@@ -14,14 +14,14 @@ potential for more accurate and detailed information extraction than possible wi
 other type of remotely sensed data.
 \section{Spectral Image Basics}
 \noindent To understand the advantages of hyperspectral imagery, it may help to first review some
-basic spectral remote sensing concepts. You may recall that each photon of light has
+basic spectral remote sensing concepts. We know that each photon of light has
 a wavelength determined by its energy level. Light and other forms of electromagnetic
 radiation are commonly described in terms of their wavelengths. For example, visible
 light has wavelengths between 0.4 and 0.7 microns, while radio waves have wavelengths
-greater than about 30 cm (Figure. 2.1).
+greater than about 30 cm (Fig. 2.1).
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=6.0cm]{imgs/Electromagnetic_spectrum.png}
+		\includegraphics[height=7.0cm]{imgs/Electromagnetic_spectrum.png}
 	\end{center}
 	\caption{The electromagnetic spectrum\cite{35}}
 	\label{fig: The electromagnetic spectrum}
@@ -34,7 +34,7 @@ the same wavelengths. These patterns of reflectance and absorption across wavele
 can uniquely identify certain materials.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=8.0cm]{imgs/Materials.png}
+		\includegraphics[height=9.0cm]{imgs/Materials.png}
 	\end{center}
 	\caption{Reflectance spectra for several common Earth surface materials\cite{35}}
 	\label{fig: Reflectance spectra for several common Earth surface materials}
@@ -47,7 +47,7 @@ can uniquely identify certain materials.
 	\caption{Reflectance spectra for important minerals\cite{35}}
 	\label{fig: Reflectance spectra for important minerals}
 \end{figure}
-\noindent Field and laboratory spectrometers usually measure reflectance at many narrow,
+\noindent Fig. 2.3 shows a reflectance spectra for some important minerals. Field and laboratory spectrometers usually measure reflectance at many narrow,
 closely spaced wavelength bands, so that the resulting spectra appear to be continuous curves (Fig. 2.2). When a spectrometer is used in an imaging sensor, the resulting
 images record a reflectance spectrum for each pixel in the image (Fig. 2.4).
 \begin{figure}[H]
@@ -86,11 +86,11 @@ classify multispectral images into broad categories. Hyperspectral imagery provi
 opportunity for more detailed image analysis. For example, using hyperspectral data,
 spectrally similar materials can be distinguished\cite{6} and sub-pixel scale information can be extracted. To fulfill this potential, new image processing techniques have been
 developed.
-\section{Sensors}
+\section{Imaging Sensors}
 The Landsat earth resources satellite system was the first designed to provide near
 global coverage of the earth’s surface on a regular and predictable basis.
 The first three Landsats had identical orbit characteristics, as summarised in
-Table A.4. The orbits were near polar and sun synchronous – i.e., the orbital plane
+Table 2.1. The orbits were near polar and sun synchronous – i.e., the orbital plane
 precessed about the earth at the same rate that the sun appears to move across the
 face of the earth. In this manner data was acquired at about the same local time on
 every pass.
@@ -176,9 +176,9 @@ significantly in the near future as new satellite-based sensors are successfully
 \end{table}
 \clearpage
 \section{Application of Hyperspectral Images}
-Multi spectral images like Landsat thematic Mapper and SPOT XS produce few broad wavelength bands but the hyperspectral image sensor will produce narrower wavelength bands. These bands can range from 100 to 200 or more. These measurement make it possible to derive continuous spectrum for each image cell, see below image. After sensor is adjusted, terrain and atmospheric condition are applied, then the results is verified against the collected spectrum value to categorize the type of vegetation or minerals or other features. Hyperspectral images contain ton of information, surface information and its spectrum behavior should be understand deeply and how it related to the hyperspectral images. This type of image are finding their importance in different fields as before it was just used for remote sensing application. Here are few applications of hyperspectral images.
+Multi spectral images like Landsat thematic Mapper and SPOT XS produce few broad wavelength bands but the hyperspectral image sensor will produce narrower wavelength bands. These bands can range from 100 to 200 or more. These measurement make it possible to derive continuous spectrum for each image cell. After sensor is adjusted, terrain and atmospheric condition are applied, then the results is verified against the collected spectrum value to categorize the type of vegetation or minerals or other features. Hyperspectral images contain ton of information, surface information and its spectrum behavior should be understand deeply and how it related to the hyperspectral images. This type of image are finding their importance in different fields as before it was just used for remote sensing application. Here are few applications of hyperspectral images.
 \begin{enumerate}
-	\item \textbf{Ground Object Detection:} Hyperspectral images are blessing in the field of ground object detection. Ground object can be detected more accurately with the help of hyperspectral image analysis than the all other conventional methods. In this research work, a subspace of hyperspectral data is detected for ground object identification.
+	\item \textbf{Ground Object Detection:} Hyperspectral images are blessing in the field of ground object detection. Ground object can be detected more accurately with the help of hyperspectral image analysis than all other conventional methods. In this research work, a subspace detection method of hyperspectral data is proposed for ground object identification.
 	\item \textbf{Remote Sensing:} In remote sensing technology it is very important to distinguish earth surface features, each features have different spectrum band. Multi spectral satellite can capture image up few bands for example Landsat 7 have 8 bands. But multi spectral imaging satellite can capture earth surface in more than 200 bands which helps scientist to differentiate objects that were not possible in multi spectral imaging because of spectral resolution.
 	\item \textbf{Seed Viability Study: }By using the hyperspectral image and plotting the reflectance spectrum one can conclude that whether those seed are viable or not viable. Seed might be looking same through naked eyes but its viability will be trace down by the hyperspectral image.
 	\item \textbf{Biotechnology:} Hyperspectral technology has become popular in the biological and medical applications. It is easy and quick to acquire the data that can be used in the laboratory. Mostly they are used in the study of the wound analysis, fluorescence microscopy, and cell biology.
@@ -205,7 +205,7 @@ vector with several hundreds of values. Consequently, the data
 are evolving in a vector space with several hundreds of dimensions. Traditional information-processing techniques cannot be
 used to process such data effectively. While it is a curse from an
 analytical, theoretical, and statistical point of view, the very high
-dimensionality of the data is also a blessing. Challenges of hyperspectral images are given below:
+dimensionality of the data is also a blessing. But the main challenge of hyperspectral image is its highly correlated huge data set. On the other hand, this large number of spectral bands has a direct impact on the required computational cost for classification. Also, as the feature space dimension increases, if the size of the training data does not grow correspondingly, a reduction in the classification accuracy of the testing data is observed due to poor parameter estimation of the supervised classifier. This effect is known as the Hughes phenomenon\cite{1}. Challenges of hyperspectral images are given below:
 \begin{itemize}
 	\item Curse of dimensionality.
 	\item High correlation.
@@ -220,4 +220,4 @@ dimensionality of the data is also a blessing. Challenges of hyperspectral image
 	\caption{Curse of dimensionality\cite{9}}
 	\label{fig: Curse of dimensionality}
 \end{figure}
-\noindent In Fig. 2.6 the problem of hyperspectral data, curse of dimensionality is present in image band number 18. From image band 18, the accuracy of the classification task is gradually decreasing as the train sample of the experiment remains constant.
+\noindent In Fig. 2.6 the problem of hyperspectral data, curse of dimensionality is present in image band number 35. From image band 35, the accuracy of the classification task is gradually decreasing as the train sample of the experiment remains constant.

@@ -1,13 +1,13 @@
 \documentclass[document.tex]{subfiles}
 \begin{document}
 
-\chapter{Feature Mining and Classification}
+\chapter{Subspace Detection and Classification}
 \section{Introduction}
 \noindent Over the past few decade hyperspectral image sensor
 has become one of the most powerful and fastest growing technologies in the field of remote sensing \cite{3}. Hyperspectral sensors collect land cover reflectance in many narrow contiguous spectral bands and form a large data cube\cite{3}. For instance, the hyperspectral imaging sensors like NASA Airborne Visible/Infrared Imaging
-Spectrometer (AVIRIS) which simultaneously measures 224 bands with a fine resolution of 0.01 $\mu$m in the spectral range of visible to near infrared. This data cube contains rich information for wide range of application including effective land cover detection and classification \cite{24}. This large data also presents some challenges while classifying into constituent objects. A major classification challenge is when the training data set is small in compare to feature space dimensions, the classification starts to decrease. This problem is known as the curse of dimensionality or Hughes phenomenon\cite{4}\cite{25}\cite{26}. On the other hand, some bands are highly correlated and can be removed. In addition not all the bands are important for a specific classification problem. Therefore, an efficient and reliable technique to extract most informative and relevant features for classification is a major interest in current literature. The aforementioned feature reduction problem can be addressed using two basic approaches\cite{2}. One is the extraction of limited number of features after mapping to a new feature space based on some criteria like variance \cite{27,28}\cite{8}\cite{7}. For instance, PCA reduces the dimensionality of the input hyperspectral image which mitigates the curse of dimensionality. In PCA, an orthogonal transformation is performed to uncorrelate the input data set and the components are selected with higher variance. However, PCA doesn't consider the class structure of input data and depends solely on the global variance. Therefore, some noisy bands with high variance can be selected as a resultant feature. This limits the performance of PCA in classification task. An alternative approach to overcome the limitation of PCA and to find an effective subspace, some sorts of feature selection on PCA can be applied\cite{34}. Normalized Mutual Information (NMI) is one of the most popular feature selection technique\cite{9,10,20}.
+Spectrometer (AVIRIS) which simultaneously measures 224 bands with a fine resolution of 0.01 $\mu$m in the spectral range of visible to near infrared. This data cube contains rich information for wide range of application including effective land cover detection and classification \cite{24}. This large data also presents some challenges while classifying into constituent objects. A major classification challenge is when the training data set is small in compare to feature space dimensions, the classification starts to decrease. This problem is known as the curse of dimensionality or Hughes phenomenon\cite{4}\cite{25}\cite{26}. On the other hand, some bands are highly correlated and can be removed. In addition not all the bands are important for a specific classification problem. Therefore, an efficient and reliable technique to extract most informative and relevant features for classification is a major interest in current literature. The aforementioned feature reduction problem can be addressed using two basic approaches\cite{2}. One is the extraction of limited number of features after mapping to a new feature space based on some criteria like variance \cite{27,28}\cite{8}\cite{7}. For instance, PCA reduces the dimensionality of the input hyperspectral image which mitigates the curse of dimensionality. In PCA, an orthogonal transformation is performed to uncorrelate the input data set and the components are selected with higher variance. However, PCA doesn't consider the class structure of input data and depends solely on the global variance. Therefore, some noisy bands with high variance can be selected as a resultant feature. This limits the performance of PCA in classification task. An alternative approach to overcome the limitation of PCA and to find an effective subspace, some sorts of feature selection on PCA can be applied\cite{34}. Normalized Mutual Information (NMI) is one of the most popular feature selection technique\cite{9,10,20}.\\
 
-\noindent Thus, feature extraction and feature selection gives a significant improvement in the classification accuracy. In some application of hyperspectral image only one class may be needed to identify at a time. For example, in land cover identification, if the objective is to identify forest land, we may not be interested in any other class except forest of the data set. In this paper, a target class oriented feature selection method is proposed which uses normalized mutual information measure over PCA data to maximize the relevance  of the input selected subset. Thus, feature selection over PCA based on target class samples also  overcomes the limitation of the PCA. Finally, the Kernel Support Vector Machine (KSVM) classifier is used to assess the effectiveness of the proposed method. 
+\noindent Thus, feature extraction and feature selection gives a significant improvement in the classification accuracy. In some application of hyperspectral image only one class may be needed to identify at a time. For example, in land cover identification, if the objective is to identify forest land, we may not be interested in any other class except forest of the data set. In this research, a target class oriented feature selection method is proposed which uses normalized mutual information measure over PCA data to maximize the relevance  of the input selected subset. Thus, feature selection over PCA based on target class samples also  overcomes the limitation of the PCA. Finally, the Kernel Support Vector Machine (KSVM) classifier is used to assess the effectiveness of the proposed method. \\
 
 \noindent Feature mining generally refers to transform a high dimensional correlated dataset into a low dimensional uncorrelated data space. It can be done by following two steps:
 \begin{itemize}
@@ -116,14 +116,14 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 \end{equation}
 
 \section{Proposed Subspace Detection Method}
-\noindent The proposed method is a target class oriented feature selection technique which select relevant features for each class of the dataset using principal component analysis (PCA) as feature extraction\cite{7} and normalized mutual information (nMI) as features selection\cite{9}. At first, the unsupervised feature extraction technique PCA is applied to find uncorrelated dataset in smaller data space. Then normalized mutual information (nMI) with two constraints to maximize general relevance and minimize redundancy on the components obtained via PCA is applied for feature selection\cite{21}. Here we consider one class of the dataset at a time and make all others as the background class. For each class of the dataset feature selection method is applied to obtain a relevant feature space to classify that class. Finally kernel support vector machine (SVM) is applied for classification purpose of the data set\cite{11}. Here first SVM use those selected features of each class to train a model for that specific class and test data to find test result for that specific class. RBF kernel\cite{22} is used in SVM as the relationship between class label C and datase $X_i$ is nonlinear. K-fold cross validation is applied to find correct parameter C and $\gamma$ of KSVM for each target class of the dataset. Finally average of those accuracy for each class is the final classification accuracy.
+\noindent The proposed method is a target class oriented subspace detection technique which select relevant features for each class of the dataset using principal component analysis (PCA) as feature extraction\cite{7} and normalized mutual information (nMI) as features selection\cite{9}. At first, the unsupervised feature extraction technique PCA is applied to find uncorrelated dataset in smaller data space. Then normalized mutual information (nMI)  to maximize general relevance and minimize redundancy on the components obtained via PCA is applied for feature selection\cite{21}. Here we consider one class of the dataset at a time and make all others as the background class. For each class of the dataset feature selection method is applied to obtain a relevant feature space to classify that class. Finally kernel support vector machine (SVM) is applied for classification purpose of the data set\cite{11}. Here first SVM use those selected features of each class to train a model for that specific class and test data to find test result for that specific class. RBF kernel\cite{22} is used in SVM as the relationship between class label C and datase $X_i$ is nonlinear. K-fold cross validation is applied to find correct parameter C and $\gamma$ of KSVM for each target class of the dataset. Finally average of those accuracy for each class is the final classification accuracy.
 
 \section{Experimental Procedure}
 
 \subsection{Feature Extraction}
 \begin{itemize}
 	\item \textbf{Step 1: Get input data. }\\
-	For processing hyperspectral image I have converted 3 dimensional data cube into 2 dimensional spaces which I will use
+	For processing hyperspectral image, I have converted 3 dimensional data cube into 2 dimensional spaces which I will use
 	as input data for PCA.\\
 	Input data = [Band1 image,band2 image, . . . . . . . .,Band 220 image]
 	\item \textbf{Step 2: Calculating the mean of each image band and then subtracting
@@ -132,21 +132,20 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 	represented by adjusted data.\\ Adjusted data = [Band1 image-mean1, band2 image-mean2 , . . . .,Band220 image-mean220]
 	\item \textbf{Step 3: Calculating the covariance of the mean subtracted image.} \\
 	In the 3rd step, I have calculated the covariance of the data got from step 2. From
-	the non-diagonal value of the covariance matrix I got the information about how
+	the non-diagonal value of the covariance matrix, I got the information about how
 	the dimensions of data are related to each other.
-	\item \textbf{Step 4: Calculating the eigenvector and eigen values of the covariance matrix.} \\
-	From the covariance matrix I have calculated the eigenvectors and eigen values
+	\item \textbf{Step 4: Calculating the eigenvector and eigenvalues of the covariance matrix.} \\
+	From the covariance matrix, I have calculated the eigenvectors and eigenvalues
 	matrix. This eigenvectors information is very important as they provide information
-	about the characteristics of input data. Eigen values indicate the variance and
-	eigenvectors indicate to which direction. For 220 dimensions I have got 220 eigen
-	values and 220 eigen vectors. Among the 220 vectors one provides a best fitting of
+	about the characteristics of input data. Eigenvalues indicate the variance and
+	eigenvectors indicate to which direction. For 220 dimensions I have got 220 eigenvalues and 220 eigenvectors. Among the 220 vectors one provides a best fitting of
 	the input data.
 	\item \textbf{Step 5: Forming feature vector by choosing the significant component.}\\
-	The eigen vectors are rearranged according to the higher value of the eigen values.
-	The eigenvector with the highest eigen value is the principal component of the
+	The eigenvectors are rearranged according to the higher value of the eigenvalues.
+	The eigenvector with the highest eigenvalue is the principal component of the
 	data set and it has the largest relationship with the input data and dimension.
 	This component contains the maximum feature of the input patterns. A subset of
-	the eigenvectors with significant eigen values collected from all the eigenvectors is
+	the eigenvectors with significant eigenvalues collected from all the eigenvectors is
 	called feature vector.
 	\item \textbf{ Step 6: Calculating the reduced data set and getting back the original
 	data.}\\
@@ -157,14 +156,13 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 	Where, the adjusted dataset means dataset with mean value of 0. The original data
 	is obtained by the following equation. Data obtained from the following equation
 	will be slightly different from the original input data as some of the noise of the
-	input data is removed by PCA when subset of the Eigen vectors are used. Original
-	Dataset = ($Featurevector^T$ $\times$ Final data) + mean of each band image.
+	input data is removed by PCA when subset of the eigenvectors are used.\\ Original Dataset = ($Featurevector^T$ $\times$ Final data) + mean of each band image.
 \end{itemize}
 
 \subsection{NMI Based Feature Selection}
 \begin{itemize}
 	\item \textbf{Step 1: Normalizing dataset into a range}\\
-	In my analysis I have normalized the dataset in 1 to 64 range. Then calculated a 64 $\times$ 64 probability table from which I have calculated the marginal probability and the joint probability of variable(s). 
+	In my analysis I have normalized the dataset in 1 to 64 range. Then calculated a 64 $\times$ 64 probability table, from which I have calculated the marginal probability and the joint probability of variable(s). 
 	\item \textbf{Step 2: Calculating mutual information between class labels and bands}\\
 	To select or rank best features for classification of the dataset I have calculated mutual information according to equation (4.3) between class labels and each band of the dataset.
 	\item \textbf{Step 3: Calculating normalized mutual information}\\
@@ -174,7 +172,7 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 \begin{itemize}
 	\item \textbf{Step 1: Get input data}\\
 	In this analysis I have used original hyperspectral data set. I have taken all 220 bands into consideration. Then I generate class labels of the sample. I have taken
-	fourteen classes which label 1 To 14.
+	fourteen classes which label from 1 to 14.
 	\item \textbf{Step 2: Normalizing dataset into a range}\\
 	I have normalized the dataset in 1 to 64 range. Then calculated a 64 $\times$ 64 probability table from which I have calculated the marginal probability and the joint probability of variable(s). 
 	\item \textbf{Step 3: Calculating mutual information between class labels and bands}\\
@@ -186,7 +184,7 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 \begin{itemize}
 	\item \textbf{Step 1: Get input data}\\
 	In this analysis I have used dataset obtained via principal component analysis. I have taken first 20 principal components into consideration. Then I generate class labels of the sample. I have taken
-	fourteen classes which label 1 To 14.
+	fourteen classes which label from 1 to 14.
 	\item \textbf{Step 2: Normalizing dataset into a range}\\
 	I have normalized the dataset in 1 to 64 range. Then calculated a 64 $\times$ 64 probability table from which I have calculated the marginal probability and the joint probability of variable(s). 
 	\item \textbf{Step 3: Calculating mutual information between class labels and bands}\\
@@ -194,7 +192,7 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 	\item \textbf{Step 4: Calculating normalized mutual information}\\
 	To normalize mutual information values between 0 to 1 I have used equation (4.6). Then I have used this normalized mutual information values to select effective features for the classification of the dataset. 
 \end{itemize}
-\subsection{Proposed method}
+\subsection{Proposed TCOSD Method}
 %The algorithm of the proposed feature reduction method can be
 %summarized as follows:
 %\begin{itemize}
@@ -210,7 +208,7 @@ Mutual Information is applied over PCA images. If the reference image is \textbf
 %	All the classes of the data set are not important for a particular application and this is why a target class oriented NMI method applied on PCA that select relevant features only for that target class. 
 %\end{itemize}
 
-In this paper, a target class oriented feature selection is proposed by applying NMI over PCA data. At first, PCA is applied on hyperspectral data cube to uncorrelate the input images. Then for each class of the data set NMI is determined to obtain a relevant feature space. During the feature selection, one class is considered as target and the remaining classes are considered as the background/second class. The algorithm of the proposed target class oriented feature selection method is summarized as follows:
+In this research, a target class oriented subspace detection method is proposed by applying NMI over PCA data. At first, PCA is applied on hyperspectral data cube to uncorrelate the input images. Then for each class of the data set NMI is determined to obtain a relevant feature space. During the feature selection, one class is considered as target and the remaining classes are considered as the background/second class. The algorithm of the proposed target class oriented subspace detection method is summarized as follows:
 \begin{itemize}
 \item Step 1: Perform PCA and extract features of the input data set.
 \item Step 2: Extract the training data and training label from the
@@ -225,26 +223,26 @@ PCA features.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=12.0cm]{imgs/flow.pdf}
+		\includegraphics[height=16.0cm]{imgs/flow.pdf}
 	\end{center}
 	\caption{Flow chart of the proposed TCOSD Method}
 	\label{fig:Flow chart of the proposed TCOSD Method}
 \end{figure}
 
-All the classes of the data set are not important for some specific application and this is why a target class oriented NMI method applied that select relevant features only for that target class. We call this method as Target Class Oriented Subspace Detection (TCOSD). In this work, Kernel Support Vector Machine (KSVM) is applied to assess the performance as it is the most popular classifier in the current literature \cite{11}. 
+\noindent All the classes of the data set are not important for some specific application and this is why a target class oriented NMI method applied that select relevant features only for that target class. We call this method as Target Class Oriented Subspace Detection (TCOSD). In this work, Kernel Support Vector Machine (KSVM) is applied to assess the performance as it is the most popular classifier in the current literature \cite{11}. 
 
 \section{Experimental Results}
 \subsection{Indian pines (92AV3C) Dataset}
 \noindent This scene was acquired by the AVIRIS sensor. Indian Pines is a 145$\times$145 scene containing
 220 spectral reflectance bands in the wavelength range 0.4-2.5$\mu$m. The Indian Pines scene
 contains two-thirds agriculture, and one-third forest or other natural perennial vegetation.
-A random band with training and testing sample pixels which is used in this research along with ground truth is shown in Figure 4.1 and 4.2. The ground truth
+A random band with training and testing sample pixels which is used in this research along with ground truth is shown in Figure 4.2 and 4.3. The ground truth
 available is designated into sixteen classes. The corrected Indian Pines data-set contains
 200 bands, obtained after removing bands covering the region of water absorption: (104-
 108), (150-163), 220.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=8.0cm]{imgs/Dataset.png}
+		\includegraphics[height=10.0cm]{imgs/Dataset.png}
 	\end{center}
 	\caption{AVIRIS 92AV3C dataset for experiment}
 	\label{fig:AVIRIS 92AV3C dataset for experiment}
@@ -252,7 +250,7 @@ available is designated into sixteen classes. The corrected Indian Pines data-se
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=8.0cm]{imgs/Ground.png}
+		\includegraphics[height=12.0cm]{imgs/Ground.png}
 	\end{center}
 	\caption{Ground truth of AVIRIS 92AV3C dataset}
 	\label{fig:Ground truth of AVIRIS 92AV3C dataset}
@@ -260,7 +258,7 @@ available is designated into sixteen classes. The corrected Indian Pines data-se
 
 \subsection{Feature Extraction Result}
 The first few PCA images  have 99\% of the total variance of the input data set. The first component is the brightest and sharpest.
-Fig. 1 shows few PCA images. 
+Fig. 1 shows few PCA images.It is not always true that higher the variance higher the information. In Fig. 4.4, it is visually shown that the PCA image 7 has high variance but less spatial information than PCA image 9. 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[height=15.0cm]{imgs/PC.png}
@@ -268,8 +266,7 @@ Fig. 1 shows few PCA images.
 	\caption{PCA image 1, 2, 7 and 9.}
 	\label{fig:Some principal components}
 \end{figure}
-
-\noindent It is not always true that higher the variance higher the information. In Fig. 1, it is visually shown that the PCA image 7 has high variance but less spatial information than PCA image 9.
+\noindent Figure 4.5 represents the cumulative relations between variance and each component. Here we can see than first 8 components of PCA has contain 99.69\% variations of the dataset.
 %\noindent In this research, at first the dimensions of the dataset is reduced from 220 using PCA. Here first few component contains most of the variation of the dataset. Figure 4.3 shows few components after applying PCA to the original AVIRIS 92AV3C dataset. First component is the most informative than second and so on. But PCA considers only the global variable of the dataset therefore some components may have more variance but less information for some specific class. Principal component 7 and principal component 9 is an example of this problem of PCA.
 %\begin{figure}[H]
 %	\begin{center}
@@ -285,7 +282,7 @@ Fig. 1 shows few PCA images.
 	\caption{Cumulative variance of bands obtained via PCA}
 	\label{fig:Cumulative variance of bands obtained via PCA}
 \end{figure}
-\noindent Figure 4.4 represents the cumulative relations between variance and each component. Here we can see than first 8 components of PCA has contain 99.69\% variations of the dataset.
+
 \subsection{NMI Based Feature Selection Result}
 %\subsubsection{Original Dataset Plus nMI Approach}
 %\begin{table}[H]
@@ -346,7 +343,7 @@ To address the limitation of PCA, feature selection method is used. Normalized m
 	\label{fig:Normalized mutual information between class labels and original bands}
 \end{figure}
 
-\noindent Fig. 4.5 shows the NMI between class labels and original data bands. The higher the NMI value of a band, the band is more important for the classification. Fig. 4.6 represents NMI between class labels and first 20 principal components. Therefore, in PCA+NMI, principal components are selected based on high value of NMI. 
+\noindent Fig. 4.6 shows the NMI between class labels and original data bands. The higher the NMI value of a band, the band is more important for the classification. Fig. 4.7 represents NMI between class labels and first 20 principal components. Therefore, in PCA+NMI, principal components are selected based on high value of NMI. 
 
 \begin{table}[H]
 	\caption{Selected features with PCA+NMI}
@@ -488,7 +485,7 @@ The hyperspectral image named 92AV3C which was captured over the indian pine tes
 	\label{tab:Details of the train and test samples}
 \end{table}
 
-\noindent The Selected features is applied to a KSVM classifier. A comparison of the classification accuracy is presented in Table-4.5 and it can be seen that the proposed method outperforms the baseline approaches.
+\noindent The Selected features is applied to a KSVM classifier. A comparison of the classification accuracy is presented in Table-4.6 and it can be seen that the proposed method outperforms the baseline approaches.
 \begin{table}[H]
 	\caption{Details of parameter for KSVM(RBF kernel)}
 	\begin{center}
@@ -503,7 +500,7 @@ The hyperspectral image named 92AV3C which was captured over the indian pine tes
 	\end{center}
 	\label{tab:Details of parameter for KSVM(RBF kernel)}
 \end{table}
-\noindent The kernel hyperparameter such as the best cost C and kernel width $\gamma$ are calculated using 10 fold cross-validation\cite{29}. Table-4.4 shows kernel hyperparameter used in this experiment.
+\noindent The kernel hyperparameter such as the best cost C and kernel width $\gamma$ are calculated using 10 fold cross-validation\cite{29}. Table-4.5 shows kernel hyperparameter used in this experiment.
 \begin{table}[H]
 	\caption{Classification result for 8 features}
 	\begin{center}
@@ -518,7 +515,7 @@ The hyperspectral image named 92AV3C which was captured over the indian pine tes
 	\end{center}
 	\label{tab:Classification result for 10 features}
 \end{table}
-\noindent Fig. 4.7 shows a visualization of comparison among the proposed approach and some standard approach studied when the classification accuracy is determined by adding the features progressively.\\
+\noindent Fig. 4.8 shows a visualization of comparison among the proposed approach and some standard approach studied when the classification accuracy is determined by adding the features progressively.\\
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[height=10.0cm]{imgs/Res.png}
