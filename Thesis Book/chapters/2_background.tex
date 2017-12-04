@@ -18,17 +18,17 @@ basic spectral remote sensing concepts. We know that each photon of light has
 a wavelength determined by its energy level. Light and other forms of electromagnetic
 radiation are commonly described in terms of their wavelengths. For example, visible
 light has wavelengths between 0.4 and 0.7 microns, while radio waves have wavelengths
-greater than about 30 cm (Fig. 2.1).
+greater than about 30 cm (Fig. \ref{fig:The electromagnetic spectrum}).
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[height=7.0cm]{imgs/Electromagnetic_spectrum.png}
 	\end{center}
 	\caption{The electromagnetic spectrum\cite{35}}
-	\label{fig: The electromagnetic spectrum}
+	\label{fig:The electromagnetic spectrum}
 \end{figure}
 \noindent Reflectance is the percentage of the light hitting a material that is then reflected by
 that material (as opposed to being absorbed or transmitted). A reflectance spectrum
-shows the reflectance of a material measured across a range of wavelengths (Fig. 2.2).
+shows the reflectance of a material measured across a range of wavelengths (Fig. \ref{fig:Reflectance spectra for several common Earth surface materials}).
 Some materials will reflect certain wavelengths of light, while other materials will absorb
 the same wavelengths. These patterns of reflectance and absorption across wavelengths
 can uniquely identify certain materials.
@@ -37,7 +37,7 @@ can uniquely identify certain materials.
 		\includegraphics[height=9.0cm]{imgs/Materials.png}
 	\end{center}
 	\caption{Reflectance spectra for several common Earth surface materials\cite{35}}
-	\label{fig: Reflectance spectra for several common Earth surface materials}
+	\label{fig:Reflectance spectra for several common Earth surface materials}
 \end{figure}
 
 \begin{figure}[H]
@@ -45,11 +45,11 @@ can uniquely identify certain materials.
 		\includegraphics[height=8.0cm]{imgs/Minerals.png}
 	\end{center}
 	\caption{Reflectance spectra for important minerals\cite{35}}
-	\label{fig: Reflectance spectra for important minerals}
+	\label{fig:Reflectance spectra for important minerals}
 \end{figure}
-\noindent Fig. 2.3 shows a reflectance spectra for some important minerals. Field and laboratory spectrometers usually measure reflectance at many narrow,
-closely spaced wavelength bands, so that the resulting spectra appear to be continuous curves (Fig. 2.2). When a spectrometer is used in an imaging sensor, the resulting
-images record a reflectance spectrum for each pixel in the image (Fig. 2.4).
+\noindent Fig. \ref{fig:Reflectance spectra for important minerals} shows a reflectance spectra for some important minerals. Field and laboratory spectrometers usually measure reflectance at many narrow,
+closely spaced wavelength bands, so that the resulting spectra appear to be continuous curves (Fig. \ref{fig:Reflectance spectra for several common Earth surface materials}). When a spectrometer is used in an imaging sensor, the resulting
+images record a reflectance spectrum for each pixel in the image (Fig. \ref{fig:Hyperspectral imagery}).
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[height=7.0cm]{imgs/Hyperspectral_imagery.jpg}
@@ -57,7 +57,7 @@ images record a reflectance spectrum for each pixel in the image (Fig. 2.4).
 	\caption{The concept of hyperspectral imagery. Image measurements are made at
 		many narrow contiguous wavelength bands, resulting in a complete spectrum for each
 		pixel.\cite{35}}
-	\label{fig: Hyperspectral imagery}
+	\label{fig:Hyperspectral imagery}
 \end{figure}
 \section{Hyperspectral Data}
 Most multispectral imagers (e.g., Landsat, SPOT, AVHRR) measure radiation reflected
@@ -90,7 +90,7 @@ developed.
 The Landsat earth resources satellite system was the first designed to provide near
 global coverage of the earth’s surface on a regular and predictable basis.
 The first three Landsats had identical orbit characteristics, as summarised in
-Table 2.1. The orbits were near polar and sun synchronous – i.e., the orbital plane
+Table \ref{tab:Landsat 1, 2, 3 orbit characteristics}. The orbits were near polar and sun synchronous – i.e., the orbital plane
 precessed about the earth at the same rate that the sun appears to move across the
 face of the earth. In this manner data was acquired at about the same local time on
 every pass.
@@ -187,37 +187,38 @@ Multi spectral images like Landsat thematic Mapper and SPOT XS produce few broad
 	\item \textbf{Pharmaceuticals: } Hyperspectral imaging technique is widely used to enhance the quality control. It is used widely to control the counterfeit or illegal drugs, managing the packaging of medicine and mixing of the powder.
 	\item \textbf{Medical Diagnose: }Early disease detection and disease prevention are very important for the healthy body. Hyperspectral imaging technology can be used to detect the early of various types of cancer or retinal disease.
 \end{enumerate}
-\section{Challenges of Hyperspectral Data Processing}
- \noindent Optical sensing has come a long way from grayscale to multispectral and now to hyperspectral images. The advances in imaging hardware over recent decades have enabled availability of high spatial, spectral, and temporal resolution imagery for a variety of applications. Hyperspectral imagery, also
-called imaging spectroscopy, entails acquiring images using a
-large number (typically a few hundreds) of narrow and often
-contiguous spectral bands, covering a wide range of the electromagnetic spectrum from the visible to the infrared regions.
-Compared to conventional color imagery (with 3 spectral bands
-covering the red, green and blue wavelengths, respectively),
-or compared to conventional multispectral imagery (typically
-a few spectral bands), hyperspectral data provide a very fine
-spectral characterization of the sensed materials, which facilitates their detection and characterization.
-Advances in hardware to acquire hyperspectral imagery have
-made such data easily accessible to a wide variety of application domains, but have also created unique challenges for
-researchers working on algorithms for the representation, exploitation, and analysis of such data. Unfortunately, this is often
-a double-edged sword. A direct consequence of the dense spectral sampling implies that each measurement corresponds to a
-vector with several hundreds of values. Consequently, the data
-are evolving in a vector space with several hundreds of dimensions. Traditional information-processing techniques cannot be
-used to process such data effectively. While it is a curse from an
-analytical, theoretical, and statistical point of view, the very high
-dimensionality of the data is also a blessing. But the main challenge of hyperspectral image is its highly correlated huge data set. On the other hand, this large number of spectral bands has a direct impact on the required computational cost for classification. Also, as the feature space dimension increases, if the size of the training data does not grow correspondingly, a reduction in the classification accuracy of the testing data is observed due to poor parameter estimation of the supervised classifier. This effect is known as the Hughes phenomenon\cite{1}. Challenges of hyperspectral images are given below:
-\begin{itemize}
-	\item Curse of dimensionality.
-	\item High correlation.
-	\item Irrelevant information for classification.
-\end{itemize}
+%\section{Challenges of Hyperspectral Data Processing}
+% \noindent Optical sensing has come a long way from grayscale to multispectral and now to hyperspectral images. The advances in imaging hardware over recent decades have enabled availability of high spatial, spectral, and temporal resolution imagery for a variety of applications. Hyperspectral imagery, also
+%called imaging spectroscopy, entails acquiring images using a
+%large number (typically a few hundreds) of narrow and often
+%contiguous spectral bands, covering a wide range of the electromagnetic spectrum from the visible to the infrared regions.
+%Compared to conventional color imagery (with 3 spectral bands
+%covering the red, green and blue wavelengths, respectively),
+%or compared to conventional multispectral imagery (typically
+%a few spectral bands), hyperspectral data provide a very fine
+%spectral characterization of the sensed materials, which facilitates their detection and characterization.
+%Advances in hardware to acquire hyperspectral imagery have
+%made such data easily accessible to a wide variety of application domains, but have also created unique challenges for
+%researchers working on algorithms for the representation, exploitation, and analysis of such data. Unfortunately, this is often
+%a double-edged sword. A direct consequence of the dense spectral sampling implies that each measurement corresponds to a
+%vector with several hundreds of values. Consequently, the data
+%are evolving in a vector space with several hundreds of dimensions. Traditional information-processing techniques cannot be
+%used to process such data effectively. While it is a curse from an
+%analytical, theoretical, and statistical point of view, the very high
+%dimensionality of the data is also a blessing. But the main challenge of hyperspectral image is its highly correlated huge data set. On the other hand, this large number of spectral bands has a direct impact on the required computational cost for classification. Also, as the feature space dimension increases, if the size of the training data does not grow correspondingly, a reduction in the classification accuracy of the testing data is observed due to poor parameter estimation of the supervised classifier. This effect is known as the Hughes phenomenon\cite{1}. Challenges of hyperspectral images are given below:
+%\begin{itemize}
+%	\item Curse of dimensionality.
+%	\item High correlation.
+%	\item Irrelevant information for classification.
+%\end{itemize}
+%\end{document}
+%
+%\begin{figure}[H]
+%	\begin{center}
+%		\includegraphics[height=8.0cm]{imgs/curse.png}
+%	\end{center}
+%	\caption{Curse of dimensionality\cite{9}}
+%	\label{fig: Curse of dimensionality}
+%\end{figure}
+%\noindent In Fig. 2.6 the problem of hyperspectral data, curse of dimensionality is present in image band number 35. From image band 35, the accuracy of the classification task is gradually decreasing as the train sample of the experiment remains constant.
 \end{document}
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[height=8.0cm]{imgs/curse.png}
-	\end{center}
-	\caption{Curse of dimensionality\cite{9}}
-	\label{fig: Curse of dimensionality}
-\end{figure}
-\noindent In Fig. 2.6 the problem of hyperspectral data, curse of dimensionality is present in image band number 35. From image band 35, the accuracy of the classification task is gradually decreasing as the train sample of the experiment remains constant.

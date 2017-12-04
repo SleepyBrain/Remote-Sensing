@@ -236,7 +236,7 @@ PCA features.
 \noindent This scene was acquired by the AVIRIS sensor. Indian Pines is a 145$\times$145 scene containing
 220 spectral reflectance bands in the wavelength range 0.4-2.5$\mu$m. The Indian Pines scene
 contains two-thirds agriculture, and one-third forest or other natural perennial vegetation.
-A random band with training and testing sample pixels which is used in this research along with ground truth is shown in Figure 4.2 and 4.3. The ground truth
+A random band with training and testing sample pixels which is used in this research along with ground truth is shown in Fig. \ref{fig:AVIRIS 92AV3C dataset for experiment} and Fig. \ref{fig:Ground truth of AVIRIS 92AV3C dataset}. The ground truth
 available is designated into sixteen classes. The corrected Indian Pines data-set contains
 200 bands, obtained after removing bands covering the region of water absorption: (104-
 108), (150-163), 220.
@@ -258,7 +258,7 @@ available is designated into sixteen classes. The corrected Indian Pines data-se
 
 \subsection{Feature Extraction Result}
 The first few PCA images  have 99\% of the total variance of the input data set. The first component is the brightest and sharpest.
-Fig. 1 shows few PCA images.It is not always true that higher the variance higher the information. In Fig. 4.4, it is visually shown that the PCA image 7 has high variance but less spatial information than PCA image 9. 
+Fig. 1 shows few PCA images.It is not always true that higher the variance higher the information. In Fig. \ref{fig:Some principal components}, it is visually shown that the PCA image 7 has high variance but less spatial information than PCA image 9. 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[height=15.0cm]{imgs/PC.png}
@@ -266,7 +266,7 @@ Fig. 1 shows few PCA images.It is not always true that higher the variance highe
 	\caption{PCA image 1, 2, 7 and 9.}
 	\label{fig:Some principal components}
 \end{figure}
-\noindent Figure 4.5 represents the cumulative relations between variance and each component. Here we can see than first 8 components of PCA has contain 99.69\% variations of the dataset.
+\noindent Figure \ref{fig:Cumulative variance of bands obtained via PCA} represents the cumulative relations between variance and each component. Here we can see than first 8 components of PCA has contain 99.69\% variations of the dataset.
 %\noindent In this research, at first the dimensions of the dataset is reduced from 220 using PCA. Here first few component contains most of the variation of the dataset. Figure 4.3 shows few components after applying PCA to the original AVIRIS 92AV3C dataset. First component is the most informative than second and so on. But PCA considers only the global variable of the dataset therefore some components may have more variance but less information for some specific class. Principal component 7 and principal component 9 is an example of this problem of PCA.
 %\begin{figure}[H]
 %	\begin{center}
@@ -323,7 +323,7 @@ Fig. 1 shows few PCA images.It is not always true that higher the variance highe
 %	\label{fig:Normalized mutual information between class labels and PC1-PC20}
 %\end{figure}
 
-To address the limitation of PCA, feature selection method is used. Normalized mutual information as selection technique is applied to overcome the problem of PCA. Table-4.1 shows selected features applying NMI over original bands and Table-4.2 shows the selected features applying NMI over PCA images. It is seen that the PC9 is selected but not PC7. 
+To address the limitation of PCA, feature selection method is used. Normalized mutual information as selection technique is applied to overcome the problem of PCA. Table \ref{tab:Selected features with Org+NMI} shows selected features applying NMI over original bands and Table \ref{tab:Selected features with PCA+NMI} shows the selected features applying NMI over PCA images. It is seen that the PC9 is selected but not PC7. 
 \begin{table}[H]
 	\caption{Selected features with Org+NMI}
 	\begin{center}
@@ -343,7 +343,7 @@ To address the limitation of PCA, feature selection method is used. Normalized m
 	\label{fig:Normalized mutual information between class labels and original bands}
 \end{figure}
 
-\noindent Fig. 4.6 shows the NMI between class labels and original data bands. The higher the NMI value of a band, the band is more important for the classification. Fig. 4.7 represents NMI between class labels and first 20 principal components. Therefore, in PCA+NMI, principal components are selected based on high value of NMI. 
+\noindent Fig. \ref{fig:Normalized mutual information between class labels and original bands} shows the NMI between class labels and original data bands. The higher the NMI value of a band, the band is more important for the classification. Fig. \ref{fig:Normalized mutual information between class labels and PC1-PC20} represents NMI between class labels and first 20 principal components. Therefore, in PCA+NMI, principal components are selected based on high value of NMI. 
 
 \begin{table}[H]
 	\caption{Selected features with PCA+NMI}
@@ -366,7 +366,7 @@ To address the limitation of PCA, feature selection method is used. Normalized m
 \end{figure}
 
 \subsection{Experimental Results}
-In this experiment, we proposed a target class oriented feature selection method (TCOSD) using NMI measure for maximizing the relevance of the selected subspace.The objective is to show that the target class oriented feature selection is more effective than the traditional feature selection while considering all the classes together. The proposed method manages this situation by considering one class as target at a time and the remaining as the background. Table-4.3 shows the selected features for each target class. 
+In this experiment, we proposed a target class oriented feature selection method (TCOSD) using NMI measure for maximizing the relevance of the selected subspace.The objective is to show that the target class oriented feature selection is more effective than the traditional feature selection while considering all the classes together. The proposed method manages this situation by considering one class as target at a time and the remaining as the background. Table \ref{tab:Selected features for each target class with proposed method (TCOSD)} shows the selected features for each target class. 
 \begin{table}[H]
 	\caption{Selected features for each target class with proposed method (TCOSD)}
 	\begin{center}
@@ -458,7 +458,7 @@ In this experiment, we proposed a target class oriented feature selection method
 %%	\label{fig:Classification accuracy of AVIRIS 92AV3c data}
 %%\end{figure}
 
-The hyperspectral image named 92AV3C which was captured over the indian pine test site in Northwestern indiana by the NASA AVIRIS sensor\cite{30} is used as the input data set. It has 220 image bands which contains 145$\times$145 pixels. The ground truth available have sixteen classes. In the experiment, 14 classes are used, because the oats and another class are too small. Details training and testing samples of AVIRIS 92AV3C data set is shown in Table 4.4.
+The hyperspectral image named 92AV3C which was captured over the indian pine test site in Northwestern indiana by the NASA AVIRIS sensor\cite{30} is used as the input data set. It has 220 image bands which contains 145$\times$145 pixels. The ground truth available have sixteen classes. In the experiment, 14 classes are used, because the oats and another class are too small. Details training and testing samples of AVIRIS 92AV3C data set is shown in Table \ref{tab:Details of the train and test samples}.
 \begin{table}[H]
 	\caption{Details of the train and test samples}
 	\begin{center}
@@ -485,7 +485,7 @@ The hyperspectral image named 92AV3C which was captured over the indian pine tes
 	\label{tab:Details of the train and test samples}
 \end{table}
 
-\noindent The Selected features is applied to a KSVM classifier. A comparison of the classification accuracy is presented in Table-4.6 and it can be seen that the proposed method outperforms the baseline approaches.
+\noindent The Selected features is applied to a KSVM classifier. A comparison of the classification accuracy is presented in Table \ref{tab:Classification result for 8 features} and it can be seen that the proposed method outperforms the baseline approaches.
 \begin{table}[H]
 	\caption{Details of parameter for KSVM(RBF kernel)}
 	\begin{center}
@@ -500,7 +500,7 @@ The hyperspectral image named 92AV3C which was captured over the indian pine tes
 	\end{center}
 	\label{tab:Details of parameter for KSVM(RBF kernel)}
 \end{table}
-\noindent The kernel hyperparameter such as the best cost C and kernel width $\gamma$ are calculated using 10 fold cross-validation\cite{29}. Table-4.5 shows kernel hyperparameter used in this experiment.
+\noindent The kernel hyperparameter such as the best cost C and kernel width $\gamma$ are calculated using 10 fold cross-validation\cite{29}. Table \ref{tab:Details of parameter for KSVM(RBF kernel)} shows kernel hyperparameter used in this experiment.
 \begin{table}[H]
 	\caption{Classification result for 8 features}
 	\begin{center}
@@ -513,9 +513,9 @@ The hyperspectral image named 92AV3C which was captured over the indian pine tes
 			TCOSD (Proposed)& 96.57\%\\ \hline
 		\end{tabular}
 	\end{center}
-	\label{tab:Classification result for 10 features}
+	\label{tab:Classification result for 8 features}
 \end{table}
-\noindent Fig. 4.8 shows a visualization of comparison among the proposed approach and some standard approach studied when the classification accuracy is determined by adding the features progressively.\\
+\noindent Fig. \ref{fig:Classification accuracy of AVIRIS 92AV3C data} shows a visualization of comparison among the proposed approach and some standard approach studied when the classification accuracy is determined by adding the features progressively.\\
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[height=10.0cm]{imgs/Res.png}
