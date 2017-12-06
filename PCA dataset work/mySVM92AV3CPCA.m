@@ -10,8 +10,8 @@ clear AVIRISPCA_train;
 
 label_train = train(:,1);
 train(:,1:2)=[];
-train = train(:,1:10);
-% train = train(:,id);
+% train = train(:,1:10);
+train = train(:,id);
 
 load AVIRISPCA_test.txt;
 test = AVIRISPCA_test;
@@ -19,8 +19,8 @@ clear AVIRISPCA_test;
 
 label_test = test(:,1);
 test(:,1:2)=[];
-train = train(:,1:10);
-% test = test(:,id);
+% train = train(:,1:10);
+test = test(:,id);
 
 for i=1:size(train, 2)
     train(:,i)=scaledata(train(:,i));
@@ -31,8 +31,8 @@ addpath('F:\CSE 700&800\Data set\libsvm-3.22\matlab');
 
 % bestc=9; bestg = 5.72;
 % bestc=10; bestg = 6;
-bestc=19; bestg = 2.4; %last time PCA
-% bestc=16; bestg = 0.7; %last time PCA+NMI
+% bestc=19; bestg = 2.4; %last time PCA
+bestc=16; bestg = 0.7; %last time PCA+NMI
 
 % bestcv=0; bestc=0; bestg=0;
 % for c = 1:20

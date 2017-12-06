@@ -22,4 +22,4 @@ for class = 1:14
     end
     C1 = [];
 end
-% save('oneClassFeature.mat','resS');
+% save('TCOSD(Min,Max).mat','resS','bestc','bestg','oneClassRes','tcoRes');

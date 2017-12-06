@@ -12,22 +12,22 @@ sb = std(B(:));
 S=64;
 
 
-A = round((A-mua)*(S/2)/(3*sa))+(S/2);
-A = (A<1).*1+(A>S).*S+((A>=1)&(A<=S)).*A;
-B = round((B-mub)*(S/2)/(3*sb))+(S/2);
-B = (B<1).*1+(B>S).*S+((B>=1)&(B<=S)).*B;
+% A = round((A-mua)*(S/2)/(3*sa))+(S/2);
+% A = (A<1).*1+(A>S).*S+((A>=1)&(A<=S)).*A;
+% B = round((B-mub)*(S/2)/(3*sb))+(S/2);
+% B = (B<1).*1+(B>S).*S+((B>=1)&(B<=S)).*B;
 
 
-% for i = 1:M
-%     A(:,i)=((A(:,i)-min(A(:,i)))/(max(A(:,i))-(min(A(:,i))))*63)+1;
-% end
-% 
-% for i = 1:M
-%     B(:,i)=((B(:,i)-min(B(:,i)))/(max(B(:,i))-(min(B(:,i))))*63)+1;
-% end
-% 
-% A = round(A);
-% B = round(B);
+for i = 1:M
+    A(:,i)=((A(:,i)-min(A(:,i)))/(max(A(:,i))-(min(A(:,i))))*63)+1;
+end
+
+for i = 1:M
+    B(:,i)=((B(:,i)-min(B(:,i)))/(max(B(:,i))-(min(B(:,i))))*63)+1;
+end
+
+A = round(A);
+B = round(B);
 
 p = zeros(S,S);
 for i = 1:N

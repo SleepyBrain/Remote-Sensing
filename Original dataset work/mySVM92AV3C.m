@@ -11,7 +11,7 @@ clear AVIRIS_train;
 label_train = train(:,1);
 train(:,1:2)=[];
 train = train;
-% train = train(:,S(1:10));
+train = train(:,S(1:10));
 
 
 %test data
@@ -22,7 +22,7 @@ clear AVIRIS_test;
 label_test = test(:,1);
 test(:,1:2)=[];
 test = test;
-% test = test(:,S(1:10));
+test = test(:,S(1:10));
 
 
 
@@ -49,7 +49,7 @@ bestc=10;bestg=2.44;%best Org+NMI
 % end
 
 cmd=['-t 2 -c ',num2str(bestc), ' -g ', num2str(bestg)];
-for f=1:220
+for f=1:10
     model = svmtrain(label_train,train(:,1:f),cmd);
     [predict_label, accuracy, dec_values] = svmpredict(label_test, test(:,1:f), model);
     resultOrg = [resultOrg accuracy(1)];
