@@ -501,6 +501,33 @@ The hyperspectral image named 92AV3C which was captured over the indian pine tes
 	\label{tab:Details of parameter for KSVM(RBF kernel)}
 \end{table}
 \noindent The kernel hyperparameter such as the best cost C and kernel width $\gamma$ are calculated using 10 fold cross-validation\cite{29}. Table \ref{tab:Details of parameter for KSVM(RBF kernel)} shows kernel hyperparameter used in this experiment.
+
+\begin{table}[H]
+	\caption{Classification result for each target class (8 features)}
+	\begin{center}
+		\begin{tabular}{|l|l|}
+			\hline
+			Class name & Accuracy(\%)\\ \hline
+			Hay-windrowed & 99.06\\ \hline
+			Soybean-notil & 91.09\\ \hline
+			Woods & 92.70\\ \hline
+			Wheat & 99.66\\ \hline
+			Grass/trees & 96.26\\ \hline
+			Soybean-min & 92.79\\ \hline
+			Corn-min & 96.86\\ \hline
+			Stone-steel & 99.83\\ \hline
+			Alfalfa & 99.83\\ \hline
+			Grass/Pasture & 96.77\\ \hline
+			Corn-notill & 95.58\\ \hline
+			Soybean-clean & 97.28\\ \hline
+			Corn & 98.64\\ \hline
+			Bldg-Grass & 98.98\\ \hline
+		\end{tabular}
+	\end{center}
+	\label{Classification result for each target class}
+\end{table}
+
+\noindent Table 4.6 represents the classification result for each target class using our proposed method.
 \begin{table}[H]
 	\caption{Classification result for 8 features}
 	\begin{center}
